@@ -1,0 +1,129 @@
+header{
+    position: fixed;
+    background-color: #000;
+    height: 60px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 1000;
+    box-shadow: 1px 5px 20px 2px rgba(0, 0, 0, .1);   
+}
+
+.logo{
+    color: #FFF;
+    padding: .5rem;
+    font-weight: 600;
+    border: 2px solid #faba42;
+    z-index: 800;
+}
+
+
+
+.container-links{
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+.container-links-link{
+    padding:0 2rem;    
+}
+
+.container-links-link a{
+    color: #FFF;
+}
+
+
+
+.menu{
+    display: none; 
+    font-size: 1.2rem;   
+}
+
+.menu .bars{
+    display: none; 
+    
+   
+}
+
+.container-menu{    
+    position: fixed;
+    height: 100vh;  
+    z-index: 1000;  
+    top: 0px;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    width: 70%;
+    box-shadow: -8px 5px 20px 2px rgba(0, 0, 0, .1);
+    background-color: #FFF;    
+    display: flex;    
+    flex-direction: column;     
+    transition: all .3s ease-in-out; 
+}
+
+.menu-link{
+    padding:  1rem 2rem;
+    margin-top: 4rem;    
+}
+
+.menu-link a{
+    color: #333;
+}
+
+a:hover{
+    color: #faba42;
+}
+
+@media (max-width: 500px){
+
+    .container-links{
+        display: none;
+    }
+    .menu{ 
+        display: block;               
+    }
+
+    .menu .bars{
+        display: block; 
+        position: fixed;
+        padding: 5px;
+        bottom: 30px;
+        right: 35px;      
+        background-color: #faba42; 
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+                   
+        color: #FFF;
+        
+         
+    }
+
+    .menu .close{
+        position: absolute;
+        padding: 5px;
+        bottom: 30px;
+        right: 35px;      
+        background-color: #faba42; 
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+                  
+        color: #FFF;
+    }
+    
+}
+
+
+
+
+
+
