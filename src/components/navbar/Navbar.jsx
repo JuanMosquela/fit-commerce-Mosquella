@@ -17,23 +17,22 @@ const Navbar = () => {
                   <li className='container-links-link' key={link}><a href={`#${link}`}>{link}</a></li>
               ))}                
             </ul>
-        </nav>
-        
+        </nav>        
         <CartWidget />
     </header>
     <div className="menu" >
-    <HiMenu className='bars' onClick={() => setMenu(true)} />
-    {menu && (            
-      <ul className='container-menu'>
-        <div className="close">
-          <HiX className='bars' onClick={() => setMenu(false)} />
-        </div>
-        {['Home', 'Products', 'FAQ'].map((link) => (
-          <li className='menu-link' key={link}><a href={`#${link}`}>{link}</a></li>
-        ))}                
-      </ul>
-    )}
-  </div>
+      <HiMenu className='bars' onClick={() => setMenu(true)} />
+      {menu && (            
+        <ul className='container-menu'>
+          <div className="close">
+            <HiX className='bars' onClick={() => setMenu(false)} />
+          </div>
+          {['Home', 'Products', 'FAQ'].map((link) => (
+            <li className='menu-link' key={link}><a href={`#${link}`}>{link}</a></li>
+          ))}                
+        </ul>
+      )}
+    </div>
     </>
   )
 }

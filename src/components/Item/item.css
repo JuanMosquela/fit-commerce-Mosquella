@@ -1,0 +1,4 @@
+.card-item:hover{
+    box-shadow: 1px 7px 30px 7px rgba(0, 0, 0, .1);
+    cursor: pointer;
+}

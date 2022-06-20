@@ -6,20 +6,16 @@ import { useEffect, useState } from "react";
 import Item from "../Item/Item";
 import productsData from "../../data/productsData";
 
-
 const ItemList = () => {  
 
   const [products, setProducts] = useState([])  
   const [loading, setLoading] = useState(true) 
 
-  useEffect(() => { 
-    
-    
+  useEffect(() => {     
 
     setTimeout(() => {
       new Promise((resolve, reject) => {
-        resolve(productsData)
-        
+        resolve(productsData)        
       })
       .then((res) => setProducts(res))
       .then(() => setLoading(false)) 
@@ -36,10 +32,11 @@ const ItemList = () => {
     <Grid container spacing={3} sx={{ padding:'10%', marginTop:'8rem' }}>     
       {productsData.map(product => (
         <Grid  item md={3} sm={6} xs={12} >        
-           <Item   key={product.id} product={product} initial={1} stock={5} />
+           <Item key={product.id} product={product} initial={1} stock={5} />
         </Grid>
       ))}
     </Grid>    
   )
 }
+
 export default ItemList

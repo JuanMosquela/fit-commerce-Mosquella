@@ -1,11 +1,11 @@
-import ItemList from '../itemLIst/ItemList'
+import ItemList from '../itemList/ItemList'
 import './itemListContainer.css'
+
 
 const ItemListContainer = () => {
   return (
     <div className="item-container">
-        <ItemList />
-               
+      <ItemList />
 
     </div>
   )

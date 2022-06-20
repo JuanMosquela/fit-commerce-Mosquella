@@ -8,6 +8,7 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { CardMedia } from '@mui/material'; 
+import './item.css'
 
 const Item = ({ initial, stock, product}) => {
 
@@ -45,7 +46,8 @@ const Item = ({ initial, stock, product}) => {
 
   return (
     <div>
-      <Card>
+      <Card className='card-item' sx={{ 
+            maxWidth:'300px' }}>
             <CardContent>
                 <Typography sx={{ fontSize: 16 }} color="text.secondary" gutterBottom>
                   $ {product.price}
