@@ -66,7 +66,7 @@ const ItemCount = ({ stock, initial }) => {
                     justifyContent:'center',
                     alignItems:'center',                                      
                 }}>
-                <Button variant='outlined' sx={{
+                <Button  sx={{
                         width:'100%',
                         mb:'5px',                                                             
                         display:'flex',
@@ -85,12 +85,13 @@ const ItemCount = ({ stock, initial }) => {
                 </Button>
                 <Button
                         onClick={() => onAdd(btnClick)} 
-                        variant='outlined'                         
-                        sx={{                                          
-                        width:'100%',                    
+                                                
+                        sx={{ 
+                            backgroundColor:'red'                                         
+                                         
                     }}
                     >
-                    add to cart
+                    add to cartttt
                 </Button>
             </CardActions>
         </Card>
