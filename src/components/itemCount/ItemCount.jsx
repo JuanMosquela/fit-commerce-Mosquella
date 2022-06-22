@@ -42,62 +42,44 @@ const ItemCount = ({ stock, initial }) => {
 
   return (
     
-    <div className="container-button">
-        <Card>
-            <CardContent>
-                <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                 best sellers
-                </Typography>
-                <Typography variant="h4" component="div">
-                  Product title
-                </Typography>
-                <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                    category
-                </Typography>
-                <Typography variant="body2">
-                Lorem ipsum dolor sit amet.
-                <br />
-                {'"a benevolent smile"'}
-                </Typography>
-            </CardContent>
-            <CardActions sx={{
-                    display:'flex',
-                    flexDirection:'column',
-                    justifyContent:'center',
-                    alignItems:'center',                                      
-                }}>
-                <Button  sx={{
-                        width:'100%',
-                        mb:'5px',                                                             
-                        display:'flex',
-                        justifyContent:'space-around',
-                        alignItems:'center'
-                    }}>                
-                    <AiOutlineMinus                    
-                        onClick={handleClickMinus}
-                    />
+    <CardActions sx={{
+        display:'flex',
+        flexDirection:'column',
+        justifyContent:'center',
+        alignItems:'center',                                      
+    }}>
+        <Button variant='outlined'  sx={{
+                width:'100%',
+                mb:'5px',                                                             
+                display:'flex',
+                justifyContent:'space-around',
+                alignItems:'center',
+                color:'#333',
+                border:'1px solid #333'
+            }}>                
+            <AiOutlineMinus                    
+                onClick={handleClickMinus}
+            />
 
-                    {btnClick}
-                   
-                    <AiOutlinePlus                    
-                        onClick={handleClickPlus} 
-                    />
-                </Button>
-                <Button
-                        onClick={() => onAdd(btnClick)} 
-                                                
-                        sx={{ 
-                            backgroundColor:'red'                                         
-                                         
-                    }}
-                    >
-                    add to cartttt
-                </Button>
-            </CardActions>
-        </Card>
-    </div>
-  )
-}
+            {btnClick}
+        
+            <AiOutlinePlus                    
+                onClick={handleClickPlus} 
+            />
+        </Button>
+        <Button
+                onClick={() => onAdd(btnClick)} 
+                variant='contained'                                        
+                sx={{ 
+                    width:'100%',
+                    backgroundColor:'#333'                                
+            }}
+            >
+            add to cart
+        </Button>
+    </CardActions>
+    )
+    }
 
 export default ItemCount
 
