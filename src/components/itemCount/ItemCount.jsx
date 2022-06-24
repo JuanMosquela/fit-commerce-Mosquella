@@ -1,15 +1,13 @@
 import { useState } from 'react';
 import {AiOutlinePlus} from 'react-icons/ai';
 import {AiOutlineMinus} from 'react-icons/ai';
-import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 import Swal from 'sweetalert2';
+import './itemCount.css'
 
 
-const ItemCount = ({ stock, initial }) => {
+const ItemCount = ({ stock, initial, product }) => {
 
     const [btnClick, setBtnClick] = useState(initial)
 
@@ -33,7 +31,7 @@ const ItemCount = ({ stock, initial }) => {
         }else{
             Swal.fire({
                 title: 'Success!',
-                text: `usted ha sumado ${btnClick} productos`,
+                text: `usted ha sumado ${btnClick} ${product.title}`,
                 icon: 'success',
                 confirmButtonText: 'Cool'
             })
@@ -43,19 +41,19 @@ const ItemCount = ({ stock, initial }) => {
   return (
     
     <CardActions sx={{
-        display:'flex',
-        flexDirection:'column',
+        display:'flex',                
         justifyContent:'center',
-        alignItems:'center',                                      
+        alignItems:'center', 
+                                            
     }}>
         <Button variant='outlined'  sx={{
-                width:'100%',
-                mb:'5px',                                                             
+                width:'100%',                                                                            
                 display:'flex',
                 justifyContent:'space-around',
                 alignItems:'center',
                 color:'#333',
-                border:'1px solid #333'
+                border:'1px solid #333',
+                
             }}>                
             <AiOutlineMinus                    
                 onClick={handleClickMinus}
@@ -72,7 +70,8 @@ const ItemCount = ({ stock, initial }) => {
                 variant='contained'                                        
                 sx={{ 
                     width:'100%',
-                    backgroundColor:'#333'                                
+                    backgroundColor:'#333',
+                    marginLeft:'0px !important'                            
             }}
             >
             add to cart

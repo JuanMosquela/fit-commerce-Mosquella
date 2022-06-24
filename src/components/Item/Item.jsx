@@ -7,22 +7,28 @@ import Typography from '@mui/material/Typography';
 import { CardMedia } from '@mui/material'; 
 import './item.css'
 import ItemCount from '../itemCount/ItemCount';
+import {Link} from 'react-router-dom'
+import ItemDetailContainer from '../itemDetailContainer/ItemDetailContainer';
 
 const Item = ({ product}) => {    
 
   return (
     <div>
-      <Card className='card-item' sx={{ 
-            maxWidth:'300px' }}>
+      
+
+        <Card className='card-item' sx={{ 
+            maxWidth:'300px',
+             }}>
             <CardContent>
                 <Typography sx={{ fontSize: 16 }} color="text.secondary" gutterBottom>
                   $ {product.price}
                 </Typography>
                 
                 <CardMedia sx={{
-                    backgroundColor:'red',
+                    
                     width:'100%',
-                    objectFit:'cover',
+                    height:'220px',
+                    objectFit:'contain',
                     marginBottom:'1.2rem'
 
                     }}
@@ -40,8 +46,10 @@ const Item = ({ product}) => {
                 </Typography>             
                 
             </CardContent> 
-            <ItemCount initial={1} stock={5}/>        
+            <ItemCount initial={1} stock={5} product={product}/>        
         </Card>
+      
+      
 
     </div>
   )
