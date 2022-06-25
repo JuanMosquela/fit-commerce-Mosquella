@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { useParams } from "react-router-dom";
 import productsData from "../../data/productsData";
 import ItemDetail from "../itemDetail/ItemDetail";
 import './itemDetailContainer.css'
@@ -6,16 +7,17 @@ import './itemDetailContainer.css'
 const ItemDetailContainer = () => {
 
   const [details, setDetails] = useState([]);
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
+  
 
   useEffect(() => {
     setTimeout(() => {
       new Promise((resolve, reject) => {
         resolve(productsData)        
       })
-      .then((res) => setDetails(res))     
+      .then((res) => setDetails(res))        
       .then(() => setLoading(false)) 
-    }, 2000); 
+    }, 1000); 
    
     
   }, [])
@@ -26,10 +28,10 @@ const ItemDetailContainer = () => {
 
   return (
     <div>
-      {details.map(product => (
-        <ItemDetail key={product.id} product={product}  />
+      {
+        <ItemDetail key={details.id} details={details}  />
 
-      ))}
+      }
 
 
     </div>

@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -11,32 +10,47 @@ import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import SkipNextIcon from '@mui/icons-material/SkipNext';
 import ItemCount from '../itemCount/ItemCount';
 import './itemDetail.css'
+import { useParams } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useState } from 'react';
 
-const ItemDetail = ({ product }) => {
+const ItemDetail = ({ details }) => { 
 
-     console.log(product)
+  const [url, setUrl] = useState("")
+
+  const params = useParams()
+
+  useEffect(() => {
+    const itemDetailID = details.filter((el) => el.id == params.id )
+    console.log(itemDetailID)
+    setUrl(itemDetailID)
+    
+  }, [])
+  
+
+  console.log(url)
   return (
     <Card sx={{ display: 'flex', padding:'0 20%' }}>
       
       <CardMedia
         component="img"
         sx={{ width: 300, marginRight:'5rem' }}
-        image={product.pictureURL}
+        image={details.pictureURL}
         alt="Live from space album cover"
       />
       <Box sx={{ display: 'flex', flexDirection: 'column', maxWidth:'600px' }}>
         <CardContent sx={{ flex: '1 0 auto' }}>
           <Typography variant="subtitle1" color="text.secondary" component="div" sx={{ fontSize:'1.8rem' }}>
-            {product.price}
+            {details.price}
           </Typography>
           <Typography component="div" variant="h5" sx={{ fontSize:'3rem', marginBottom:'1rem' }}>
-            {product.title}
+            {details.title}
           </Typography>
           <Typography variant="p" color="text.secondary" component="div" sx={{ fontSize:'1.4rem' }}>
-            {product.description}
+            {details.description}
           </Typography>
         </CardContent>
-        <ItemCount stock={5} initial={1} product={product}/>
+        <ItemCount stock={5} initial={1} />
         
         
       </Box>
