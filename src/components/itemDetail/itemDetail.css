@@ -4,3 +4,14 @@
     align-items: center;
     height: 100vh;
 }
+
+@media (max-width:600px){
+
+    .container-product{
+        flex-direction: column;
+
+
+    }
+
+}
+

@@ -2,6 +2,7 @@ import './navbar.css';
 import { HiMenu, HiX } from "react-icons/hi";
 import { useState } from 'react';
 import CartWidget from '../cartWidget/CartWidget';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
 
@@ -13,26 +14,28 @@ const Navbar = () => {
         <a className="logo" href="#inicio">PHYSICAL POINT</a>
         <nav>
             <ul className='container-links'>
-              {['Home', 'Products', 'FAQ'].map((link) => (
-                  <li className='container-links-link' key={link}><a href={`#${link}`}>{link}</a></li>
-              ))}                
+              <Link to='/'>Home</Link>
+              <Link to='/contact'>Contact</Link>
+              <Link to='/faq'>FAQ</Link>
+                           
             </ul>
         </nav>        
         <CartWidget />
     </header>
-    <div className="menu" >
-      <HiMenu className='bars' onClick={() => setMenu(true)} />
-      {menu && (            
-        <ul className='container-menu'>
-          <div className="close">
-            <HiX className='bars' onClick={() => setMenu(false)} />
-          </div>
-          {['Home', 'Products', 'FAQ'].map((link) => (
-            <li className='menu-link' key={link}><a href={`#${link}`}>{link}</a></li>
-          ))}                
-        </ul>
-      )}
-    </div>
+      <div className="menu" >
+        <HiMenu className='bars' onClick={() => setMenu(true)} />
+        {menu && (            
+          <ul className='container-menu'>
+            <div className="close">
+              <HiX className='bars' onClick={() => setMenu(false)} />
+            </div>
+            <li className='menu-link'><Link to='/'>Home</Link></li>
+            <li className='menu-link'><Link to='/'>Contact</Link></li>
+            <li className='menu-link'><Link to='/'>FAQ</Link></li>
+                           
+          </ul>
+        )}
+      </div>
     </>
   )
 }

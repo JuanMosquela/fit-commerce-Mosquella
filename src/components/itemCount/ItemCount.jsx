@@ -7,7 +7,7 @@ import Swal from 'sweetalert2';
 import './itemCount.css'
 
 
-const ItemCount = ({ stock, initial, product }) => {
+const ItemCount = ({ stock, initial, productInfo }) => {
 
     const [btnClick, setBtnClick] = useState(initial)
 
@@ -31,7 +31,7 @@ const ItemCount = ({ stock, initial, product }) => {
         }else{
             Swal.fire({
                 title: 'Success!',
-                text: `usted ha sumado ${btnClick} ${product.title}`,
+                text: `usted ha sumado ${btnClick} ${productInfo.title}`,
                 icon: 'success',
                 confirmButtonText: 'Cool'
             })
@@ -44,6 +44,7 @@ const ItemCount = ({ stock, initial, product }) => {
         display:'flex',                
         justifyContent:'center',
         alignItems:'center', 
+        gap:'1rem'
                                             
     }}>
         <Button variant='outlined'  sx={{

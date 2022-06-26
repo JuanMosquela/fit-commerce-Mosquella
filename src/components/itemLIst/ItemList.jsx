@@ -21,17 +21,17 @@ const ItemList = () => {
       })
       .then((res) => setData(res))
       .then(() => setLoading(false)) 
-    }, 2000); 
+    }, 500); 
     
   }, [])  
 
 
   return (
     (loading !== false) ?
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ textAlign:'center', marginTop:'2rem' }}>
       <CircularProgress />
     </Box> :
-    <Grid container spacing={3} sx={{ padding:'10%', marginTop:'8rem', margin:'auto 0' }}>     
+    <Grid container spacing={3} sx={{ padding:'0 10%', margin:'auto 0' }}>     
       {data.map(product => (
         <Grid key={product.id} item md={3} sm={6} xs={12} >        
            <Link to={`/item/${product.id}`}>

@@ -1,9 +1,7 @@
-.item-container{
-    height: 100vh;   
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
+.item-container .background{
+    height: 60vh;
+    width: 100%;
+    object-fit: cover;
 }
 
 .item-container h1{

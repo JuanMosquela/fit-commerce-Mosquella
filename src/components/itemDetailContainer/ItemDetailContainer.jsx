@@ -6,21 +6,30 @@ import './itemDetailContainer.css'
 
 const ItemDetailContainer = () => {
 
-  const [details, setDetails] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [details, setDetails] = useState([]);  
+  
+  const {id} = useParams();
+
+  const [productInfo, setProductInfo] = useState({})
   
 
   useEffect(() => {
-    setTimeout(() => {
-      new Promise((resolve, reject) => {
-        resolve(productsData)        
-      })
-      .then((res) => setDetails(res))        
-      .then(() => setLoading(false)) 
-    }, 1000); 
+    new Promise((resolve, reject) => {
+      resolve(productsData)        
+    })
+    .then((res) => setDetails(res))        
+        
+
+    const filterItem = details.filter(el => el.id == id);    
+
+    console.log(filterItem[0])
+
+    setProductInfo(filterItem[0])
+
+    console.log(productInfo)
    
     
-  }, [])
+  }, [details])
   
 
 
@@ -29,7 +38,7 @@ const ItemDetailContainer = () => {
   return (
     <div>
       {
-        <ItemDetail key={details.id} details={details}  />
+        <ItemDetail key={details.id} productInfo={productInfo}  />
 
       }
 

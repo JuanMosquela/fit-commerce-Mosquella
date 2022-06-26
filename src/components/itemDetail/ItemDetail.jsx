@@ -14,43 +14,40 @@ import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useState } from 'react';
 
-const ItemDetail = ({ details }) => { 
+const ItemDetail = ({ productInfo }) => { 
 
-  const [url, setUrl] = useState("")
-
-  const params = useParams()
-
-  useEffect(() => {
-    const itemDetailID = details.filter((el) => el.id == params.id )
-    console.log(itemDetailID)
-    setUrl(itemDetailID)
-    
-  }, [])
+  console.log(productInfo)
   
 
-  console.log(url)
+  
+  
+
+  
   return (
-    <Card sx={{ display: 'flex', padding:'0 20%' }}>
+    <Card className='container-product' sx={{ display: 'flex', alignItems:'center', justifyContent:'center', minHeight:'100vh', padding:'0 2%', gap:'2rem' }}>
       
       <CardMedia
         component="img"
-        sx={{ width: 300, marginRight:'5rem' }}
-        image={details.pictureURL}
+        sx={{ width: 300 }}
+        image={productInfo.pictureURL}
         alt="Live from space album cover"
       />
       <Box sx={{ display: 'flex', flexDirection: 'column', maxWidth:'600px' }}>
         <CardContent sx={{ flex: '1 0 auto' }}>
+          <Typography component="span" variant="subtitle1" sx={{ fontSize:'1.4rem', marginBottom:'.5rem' }}>
+            {productInfo.subtitle}
+          </Typography>
+          <Typography component="div" variant="h4" sx={{ fontSize:'3rem', marginBottom:'.5rem', color:'#faba42', fontWeight:'600' }}>
+            {productInfo.title}
+          </Typography>
           <Typography variant="subtitle1" color="text.secondary" component="div" sx={{ fontSize:'1.8rem' }}>
-            {details.price}
+            $ {productInfo.price}
           </Typography>
-          <Typography component="div" variant="h5" sx={{ fontSize:'3rem', marginBottom:'1rem' }}>
-            {details.title}
-          </Typography>
-          <Typography variant="p" color="text.secondary" component="div" sx={{ fontSize:'1.4rem' }}>
-            {details.description}
+          <Typography variant="p" color="text.secondary" component="div" sx={{ fontSize:'1rem' }}>
+            {productInfo.description}
           </Typography>
         </CardContent>
-        <ItemCount stock={5} initial={1} />
+        <ItemCount stock={5} initial={1} productInfo={productInfo} />
         
         
       </Box>

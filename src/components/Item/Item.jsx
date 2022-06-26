@@ -17,14 +17,14 @@ const Item = ({ product}) => {
       
 
         <Card className='card-item' sx={{ 
-            maxWidth:'300px',
+            maxWidth:'300px', minHeight:'360px'
              }}>
             <CardContent>
                 <Typography sx={{ fontSize: 16 }} color="text.secondary" gutterBottom>
                   $ {product.price}
                 </Typography>
                 
-                <CardMedia sx={{
+                <CardMedia className='img' sx={{
                     
                     width:'100%',
                     height:'220px',
@@ -46,7 +46,7 @@ const Item = ({ product}) => {
                 </Typography>             
                 
             </CardContent> 
-            <ItemCount initial={1} stock={5} product={product}/>        
+                   
         </Card>
       
       

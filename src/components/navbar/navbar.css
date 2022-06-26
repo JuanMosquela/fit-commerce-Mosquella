@@ -23,13 +23,14 @@ header{
 .container-links{
     display: flex;
     justify-content: center;
-    align-items: center;    
+    align-items: center;  
+    gap: 2rem;  
 }
 .container-links-link{
     padding:0 2rem;    
 }
 
-.container-links-link a{
+.container-links a{
     color: #FFF;
 }
 
