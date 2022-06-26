@@ -6,3 +6,12 @@
     font-family: 'Montserrat', sans-serif; 
     transition: .3s ease-in-out;
 }
+
+:root{
+    --color-orange: #faba42;
+
+}
+
+html{
+    overflow-x: hidden ;
+}

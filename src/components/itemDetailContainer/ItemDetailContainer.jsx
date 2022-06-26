@@ -14,22 +14,14 @@ const ItemDetailContainer = () => {
   
 
   useEffect(() => {
-    new Promise((resolve, reject) => {
-      resolve(productsData)        
+    new Promise((resolve, reject) => {      
+      
+      resolve(productsData.find(product => product.id == id))        
     })
-    .then((res) => setDetails(res))        
-        
-
-    const filterItem = details.filter(el => el.id == id);    
-
-    console.log(filterItem[0])
-
-    setProductInfo(filterItem[0])
-
-    console.log(productInfo)
+    .then((res) => setDetails(res))  
    
     
-  }, [details])
+  }, [id])
   
 
 
@@ -38,7 +30,7 @@ const ItemDetailContainer = () => {
   return (
     <div>
       {
-        <ItemDetail key={details.id} productInfo={productInfo}  />
+        <ItemDetail details={details}  />
 
       }
 

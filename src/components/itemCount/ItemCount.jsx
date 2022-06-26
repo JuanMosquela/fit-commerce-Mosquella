@@ -53,7 +53,9 @@ const ItemCount = ({ stock, initial, productInfo }) => {
                 justifyContent:'space-around',
                 alignItems:'center',
                 color:'#333',
-                border:'1px solid #333',
+                
+                
+                
                 
             }}>                
             <AiOutlineMinus                    
@@ -72,7 +74,12 @@ const ItemCount = ({ stock, initial, productInfo }) => {
                 sx={{ 
                     width:'100%',
                     backgroundColor:'#333',
-                    marginLeft:'0px !important'                            
+                    '&:hover': {
+                        background: "#faba42",
+                    },
+                    marginLeft:'0px !important',
+
+
             }}
             >
             add to cart

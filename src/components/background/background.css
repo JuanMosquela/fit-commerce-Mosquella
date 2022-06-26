@@ -1,0 +1,36 @@
+.background{
+    position: relative;
+    margin-bottom: 5rem;
+}
+.background img{
+    width: 100%;
+}
+
+.header-content{
+    position: absolute;
+    top: 40%;
+    left: 12%;
+   
+}
+
+.header-content span{
+    color: #faba42; 
+    font-weight: 600;   
+   
+}
+
+.header-content h1{
+    font-size: 3rem;
+    color: white;    
+    margin-bottom: 1rem;
+}
+
+.header-content .btn{
+    background-color: #faba42;
+    transition: .3s ease;
+}
+
+.header-content .btn:hover{
+    transform: scale(1.1);
+    background-color: #faba42;
+}

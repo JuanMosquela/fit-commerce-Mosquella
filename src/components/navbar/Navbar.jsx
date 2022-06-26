@@ -3,6 +3,7 @@ import { HiMenu, HiX } from "react-icons/hi";
 import { useState } from 'react';
 import CartWidget from '../cartWidget/CartWidget';
 import { Link } from 'react-router-dom';
+import MenuPopupState from '../menuPopupState/MenuPopupState';
 
 const Navbar = () => {
 
@@ -11,12 +12,12 @@ const Navbar = () => {
   return (
     <>
       <header>
-        <a className="logo" href="#inicio">PHYSICAL POINT</a>
+        <Link className='logo' to='/'>PHYSICAL POINT</Link>
         <nav>
             <ul className='container-links'>
               <Link to='/'>Home</Link>
-              <Link to='/contact'>Contact</Link>
-              <Link to='/faq'>FAQ</Link>
+              <MenuPopupState />
+             
                            
             </ul>
         </nav>        
