@@ -15,10 +15,8 @@ const Navbar = () => {
         <Link className='logo' to='/'>PHYSICAL POINT</Link>
         <nav>
             <ul className='container-links'>
-              <Link to='/'>Home</Link>
-              <MenuPopupState />
-             
-                           
+              <li><Link to='/'>Home</Link></li>
+              <MenuPopupState />                          
             </ul>
         </nav>        
         <CartWidget />

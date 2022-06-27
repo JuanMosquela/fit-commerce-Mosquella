@@ -13,7 +13,7 @@ const ItemList = ({ data }) => {
 
   return (
     
-    <Grid container spacing={3} sx={{ padding:'0 10%', margin:'auto 0' }}>     
+    <Grid container spacing={4} sx={{ gap:'2rem', justifyContent:'center', marginTop:'2rem', padding:'0 10%' }}>     
       {data.map(product => (
         <Item key={product.id} product={product} />
       ))}

@@ -11,9 +11,9 @@ const ItemDetail = ({ details }) => {
   return (
     <Card className='container-product' sx={{ display: 'flex', alignItems:'center', justifyContent:'center', minHeight:'100vh', padding:'0 2%', gap:'3rem' }}>
       
-      <CardMedia
+      <CardMedia className='img'
         component="img"
-        sx={{ width: 300 }}
+        sx={{ width: 300, height: 500 }}
         image={details.pictureURL}
         alt="Live from space album cover"
       />

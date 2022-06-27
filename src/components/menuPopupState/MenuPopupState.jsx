@@ -33,13 +33,13 @@ export default function MenuPopupState() {
     <PopupState variant="popover" popupId="demo-popup-menu">
       {(popupState) => (
         <>
-          <Button variant="contained" {...bindTrigger(popupState)}>
+          <Button variant="contained" sx={{ backgroundColor:'orange' }} {...bindTrigger(popupState)}>
             Categorias
           </Button>
           <Menu {...bindMenu(popupState)}>             
             {
               categories.map(category => (                
-                <Link key={category} to={`/category/${category}`}><MenuItem onClick={() => filterItems(category)}>{category}</MenuItem></Link>
+                <li key={category}><Link  to={`/category/${category}`}><MenuItem onClick={() => filterItems(category)}>{category}</MenuItem></Link></li>
               ))
             }          
             

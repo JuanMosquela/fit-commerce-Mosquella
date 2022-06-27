@@ -10,12 +10,12 @@ const Item = ({ product}) => {
 
   return (
     <div>
-      <Grid key={product.id} item md={3} sm={6} xs={12} >        
+      <Grid key={product.id} item md={3} sm={4} xs={12} >        
           <Link to={`/item/${product.id}`}>
             <Card className='card-item' sx={{ 
-                maxWidth:'300px', minHeight:'350px'
+                maxHeight:'340px', maxWidth:'240px'
               }}>
-              <CardContent>          
+              <CardContent>        
                   
                   <CardMedia className='img' sx={{
                       

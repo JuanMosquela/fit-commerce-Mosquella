@@ -6,13 +6,14 @@ import { useState, useEffect } from 'react';
 import * as React from 'react';
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
-
+import { useParams } from 'react-router-dom';
 
 
 const ItemListContainer = () => {
 
   const [data, setData] = useState([])
-  const [loading, setLoading] = useState(true)  
+  const [loading, setLoading] = useState(true) 
+  const {id} = useParams()
   
 
   useEffect(() => {     
@@ -22,10 +23,20 @@ const ItemListContainer = () => {
         resolve(productsData)        
       })
       .then((res) => setData(res))
-      . finally(() => setLoading(false)) 
+      .finally(() => setLoading(false)) 
     }, 500); 
     
-  }, [])  
+  }, [])
+
+  useEffect(() => {
+    new Promise((resolve, reject) => {
+      resolve(productsData.filter((product) => product.category == id))        
+    })
+    .then((res) => setData(res))
+
+    console.log(data)    
+    
+  }, [id])    
 
 
   return (
