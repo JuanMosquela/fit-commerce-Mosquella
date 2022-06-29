@@ -20,7 +20,7 @@ export default function MenuPopupState() {
       myCategories.add(product.category)      
       setCategories([...myCategories])      
       
-    })  
+    }) 
     
   }, [])
    
@@ -29,7 +29,7 @@ export default function MenuPopupState() {
     <PopupState variant="popover" popupId="demo-popup-menu">
       {(popupState) => (
         <>
-          <Button variant="contained" sx={{ backgroundColor:'orange' }} {...bindTrigger(popupState)}>
+          <Button variant="contained" sx={{ backgroundColor:'orange', fontSize:'1.2rem' }} {...bindTrigger(popupState)}>
             Categorias
           </Button>
           <Menu {...bindMenu(popupState)}>             
