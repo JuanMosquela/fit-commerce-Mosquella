@@ -3,7 +3,7 @@ import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import productsData from '../../data/productsData';
 import { useEffect, useState } from 'react';
 
@@ -11,6 +11,8 @@ import { useEffect, useState } from 'react';
 export default function MenuPopupState() {
 
   const [categories, setCategories] = useState([])
+
+  const {id} = useParams()
 
   const myCategories = new Set()
   useEffect(() => {
@@ -22,11 +24,7 @@ export default function MenuPopupState() {
     })  
     
   }, [])
-
-   const filterItems = (category) => {
-
-    
-   }
+   
 
   return (
     <PopupState variant="popover" popupId="demo-popup-menu">
@@ -38,7 +36,7 @@ export default function MenuPopupState() {
           <Menu {...bindMenu(popupState)}>             
             {
               categories.map(category => (                
-                <li key={category}><Link  to={`/category/${category}`}><MenuItem onClick={() => filterItems(category)}>{category}</MenuItem></Link></li>
+                <li key={category}><Link  to={`/category/${category}`}><MenuItem>{category}</MenuItem></Link></li>
               ))
             }          
             

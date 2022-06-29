@@ -26,7 +26,7 @@ const ItemListContainer = () => {
       .finally(() => setLoading(false)) 
     }, 500); 
     
-  }, [id])
+  }, [])
 
   useEffect(() => {
     new Promise((resolve, reject) => {
