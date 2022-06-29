@@ -9,6 +9,9 @@
 
 :root{
     --color-orange: #faba42;
+    --color-light-black:#27282D;
+    --color-black:#1F2023;
+    --color-dark-black:#000000;
 
 }
 
@@ -17,6 +20,5 @@ html{
     font-size: 62.5%;
 }
 
-p{
-    font-size: 3rem;
-}
+
+

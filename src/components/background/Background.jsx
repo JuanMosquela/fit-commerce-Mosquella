@@ -9,7 +9,8 @@ const Background = () => {
         <img src={BackgroundImg} alt="" />
         <div className="header-content">
             <span>tu tienda online:</span>
-            <h1>La casa del fitness</h1>
+            <h3>La casa del</h3>
+            <h1>Fitness</h1>
             <Button className="btn" variant="contained">Empezar a comprar</Button>
         </div>
 

@@ -14,7 +14,8 @@ header{
     color: #FFF;
     padding: .5rem;
     font-weight: 600;
-    border: 2px solid #faba42;
+    font-size: 1.6rem;
+    border: 3px solid #faba42;
     z-index: 800;
 }
 
@@ -24,7 +25,8 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;  
-    gap: 2rem;  
+    gap: 2rem;
+     font-size: 1.6rem;  
 }
 .container-links-link{
     padding:0 2rem;    

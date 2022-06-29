@@ -11,13 +11,12 @@ import { useEffect, useState } from 'react';
 export default function MenuPopupState() {
 
   const [categories, setCategories] = useState([])
-
-  const {id} = useParams()
+ 
 
   const myCategories = new Set()
   useEffect(() => {
 
-    productsData.map(product => {
+    productsData.forEach(product => {
       myCategories.add(product.category)      
       setCategories([...myCategories])      
       
@@ -36,7 +35,7 @@ export default function MenuPopupState() {
           <Menu {...bindMenu(popupState)}>             
             {
               categories.map(category => (                
-                <li key={category}><Link  to={`/category/${category}`}><MenuItem>{category}</MenuItem></Link></li>
+                <li key={category}><Link  to={`/category/${category}`}><MenuItem sx={{ textTransform:'capitalize'}}>{category}</MenuItem></Link></li>
               ))
             }          
             

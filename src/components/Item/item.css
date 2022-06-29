@@ -1,13 +1,14 @@
 .card-item{
-    width: 300px;
+    width: 500px;
+    transition: 1s ease;
+    
+    
 }
 
 .card-item:hover{
-    box-shadow: 1px 7px 30px 7px rgba(0, 0, 0, .1);
+    
+    
+    transform: scale(1.05);
     cursor: pointer;
 }
 
-.card-item .img:hover{
-    transform: scale(1.1);
-
-}

@@ -10,20 +10,18 @@ import { useParams } from 'react-router-dom';
 
 
 const ItemListContainer = () => {
-
   const [data, setData] = useState([])
   const [loading, setLoading] = useState(true) 
   const {id} = useParams()
-  
 
-  useEffect(() => {     
+  useEffect(() => {    
 
     setTimeout(() => {
       new Promise((resolve, reject) => {
         resolve(productsData)        
       })
       .then((res) => setData(res))
-      .finally(() => setLoading(false)) 
+      .then(() => setLoading(false)) 
     }, 500); 
     
   }, [])
