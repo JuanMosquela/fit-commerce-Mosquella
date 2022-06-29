@@ -26,15 +26,13 @@ const ItemListContainer = () => {
       .finally(() => setLoading(false)) 
     }, 500); 
     
-  }, [])
+  }, [id])
 
   useEffect(() => {
     new Promise((resolve, reject) => {
-      resolve(productsData.filter((product) => product.category == id))        
+      resolve(productsData.filter((product) => product.category === id))        
     })
-    .then((res) => setData(res))
-
-    console.log(data)    
+    .then((res) => setData(res))       
     
   }, [id])    
 

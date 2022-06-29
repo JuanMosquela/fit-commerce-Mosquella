@@ -16,8 +16,7 @@ export default function MenuPopupState() {
   useEffect(() => {
 
     productsData.map(product => {
-      myCategories.add(product.category)
-      console.log(myCategories)
+      myCategories.add(product.category)      
       setCategories([...myCategories])      
       
     })  

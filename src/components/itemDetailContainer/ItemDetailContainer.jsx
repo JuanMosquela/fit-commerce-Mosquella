@@ -8,10 +8,7 @@ const ItemDetailContainer = () => {
 
   const [details, setDetails] = useState([]);  
   
-  const {id} = useParams();
-
-  const [productInfo, setProductInfo] = useState({})
-  
+  const {id} = useParams();  
 
   useEffect(() => {
     new Promise((resolve, reject) => {      
@@ -22,18 +19,14 @@ const ItemDetailContainer = () => {
    
     
   }, [id])
-  
-
-
 
 
   return (
     <div>
       {
-        <ItemDetail details={details}  />
+        <ItemDetail stock={5} initial={1} details={details}  />
 
       }
-
 
     </div>
     
