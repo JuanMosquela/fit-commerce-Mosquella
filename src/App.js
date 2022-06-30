@@ -4,6 +4,7 @@ import Navbar from './components/navbar/Navbar';
 import ItemDetailContainer from './components/itemDetailContainer/ItemDetailContainer';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Footer from './components/footer/Footer';
+import ScrollToTop from './components/ScrollToTop';
 
 
 
@@ -14,6 +15,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Navbar />
+        <ScrollToTop />
         <Routes>
           <Route path='/' element={<ItemListContainer />} />
           <Route path='/category/:id' element={<ItemListContainer />} />
