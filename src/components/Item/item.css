@@ -1,8 +1,5 @@
 .card-item{
-    width: 500px;
-    transition: 1s ease;
-    
-    
+    width: 220px;
 }
 
 .card-item:hover{

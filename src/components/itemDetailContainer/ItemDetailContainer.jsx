@@ -1,14 +1,21 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
 import productsData from "../../data/productsData";
+import Carrusel from "../carrusel/Carrusel";
+
+
 import ItemDetail from "../itemDetail/ItemDetail";
-import './itemDetailContainer.css'
+
 
 const ItemDetailContainer = () => {
 
+  const [data, setData] = useState([])
+
   const [details, setDetails] = useState([]);  
   
-  const {id} = useParams();  
+  const {id} = useParams(); 
+
+  console.log(productsData) 
 
   useEffect(() => {
     new Promise((resolve, reject) => {      
@@ -20,14 +27,22 @@ const ItemDetailContainer = () => {
     
   }, [id])
 
+  useEffect(() => {    
+
+    new Promise((resolve, reject) => {
+      resolve(productsData)        
+    })
+    .then((res) => setData(res))
+    
+    
+  }, [])
+
 
   return (
-    <div>
-      {
-        <ItemDetail stock={5} initial={1} details={details}  />
-
-      }
-
+    <div className="item-detail-container">
+      <ItemDetail stock={5} initial={1} details={details}  />
+      <Carrusel data={data} />
+          
     </div>
     
   )

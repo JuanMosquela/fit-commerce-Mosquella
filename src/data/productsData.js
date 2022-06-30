@@ -26,7 +26,14 @@ let productsData = [
         subtitle:'Best sellers:',
         description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit quod tempore error possimus corporis quibusdam consequuntur laboriosam soluta est cum ab nihil asperiores delectus vero, eaque suscipit, repudiandae cupiditate, perspiciatis nemo. Quo nisi est doloremque officiis similique, ullam, saepe tempora illum vero libero facere omnis vel laboriosam porro nobis magnam.",
         price: 500,
-        pictureURL: 'https://http2.mlstatic.com/D_NQ_NP_604749-MLA40583531042_012020-O.webp'
+        pictureURL: [
+            'https://http2.mlstatic.com/D_NQ_NP_604749-MLA40583531042_012020-O.webp',
+            'https://www.demusculos.com/shop/1869-medium_default/dos-proteina-best-protein-xtrenght-nutrition.jpg',
+            'https://http2.mlstatic.com/D_NQ_NP_852412-MLA43012291071_082020-O.webp',
+            'https://http2.mlstatic.com/D_NQ_NP_962796-MLA43012282193_082020-O.webp'
+
+
+        ]
   
     },
     {

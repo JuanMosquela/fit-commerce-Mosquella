@@ -14,25 +14,27 @@ const ItemListContainer = () => {
   const [loading, setLoading] = useState(true) 
   const {id} = useParams()
 
-  useEffect(() => {    
-
-    setTimeout(() => {
+  useEffect(() => { 
+    if(id){
       new Promise((resolve, reject) => {
-        resolve(productsData)        
+        resolve(productsData.filter((product) => product.category === id))        
       })
-      .then((res) => setData(res))
-      .then(() => setLoading(false)) 
-    }, 500); 
-    
-  }, [])
+      .then((res) => setData(res))    
 
-  useEffect(() => {
-    new Promise((resolve, reject) => {
-      resolve(productsData.filter((product) => product.category === id))        
-    })
-    .then((res) => setData(res))       
+    }else{
+      setTimeout(() => {
+        new Promise((resolve, reject) => {
+          resolve(productsData)        
+        })
+        .then((res) => setData(res))
+        .then(() => setLoading(false)) 
+      }, 500); 
+
+    }    
     
-  }, [id])    
+  }, [id])
+
+ 
 
 
   return (

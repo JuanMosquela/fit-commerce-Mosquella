@@ -5,6 +5,37 @@
     
 }
 
+.container-product{
+    min-height: 100vh;
+}
+
+
+.image-container-product{
+   
+    display: flex;
+    
+}
+
+.image-container-product img{
+    width: 100px;
+    object-fit: contain;
+}
+
+
+
+
+.image-row{
+    display: flex;
+    justify-content: center;
+    
+}
+
+.image-row img{
+    width: 60px;
+    height: 80px;
+    object-fit: contain;
+}
+
 @media (max-width:600px){
 
     .container-product{
