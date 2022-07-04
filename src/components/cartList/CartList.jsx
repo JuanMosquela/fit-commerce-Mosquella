@@ -5,11 +5,12 @@ import './cartlist.css'
 import { Card, CardContent, CardMedia, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import ItemDetail from "../itemDetail/ItemDetail";
+import ItemCount from "../itemCount/ItemCount";
 
 
 
 const CartList = () => {
-    const { cart, toggleCart, cartItems, totalItems } = useContext(CartContext)
+    const { cart, toggleCart, cartItems, totalItems, btnClick } = useContext(CartContext)
 
     console.log(cartItems)
   return (
@@ -34,10 +35,14 @@ const CartList = () => {
                         <div className="product-content">
                             <h4>{product.title}</h4>
                             <h5>${product.price}</h5>
+                            <ItemCount btnClick={btnClick} />
 
                         </div>
                     </div>
                 ))}
+                <h4>
+                    <span>Total price:</span>{}
+                </h4>
                 
                 
             </div>

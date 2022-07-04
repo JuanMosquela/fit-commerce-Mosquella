@@ -2,9 +2,10 @@
     position: absolute;
     background-color: #FFF;
     box-shadow: 1px 7px 15px rgba(0, 0, 0, .2);
-    height: 100vh;
+    height: 90vh;
+    overflow-y: scroll;
     width: 500px;
-    right: 0;
+    right: -12px;
     top: 60px;
     
 }
@@ -62,6 +63,7 @@
 
 .product-content{
     display: flex;
+    flex-direction: column;
     gap: 2rem;
 }
 

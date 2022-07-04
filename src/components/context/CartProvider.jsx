@@ -1,10 +1,10 @@
-import { ClassNames } from "@emotion/react"
-import { ConstructionOutlined } from "@mui/icons-material"
 import { createContext, useState } from "react"
 
 export const CartContext = createContext()
 
 const CartProvider = ({ children }) => {
+    
+    
 
     const [cartItems, setCartItems] = useState([])
 
@@ -18,40 +18,34 @@ const CartProvider = ({ children }) => {
 
     const addItem = (details) => {
         
-        setCartItems([...cartItems, details])
+    setCartItems([...cartItems, details])
         
-        if(cartItems.find(item => (
-            item.id === details.id
-        ))){
-            setTotalItems(totalItems + 1 )
+    if(cartItems.find(item => (
+        item.id === details.id
+    ))){
+        setTotalItems(totalItems + 1)
 
-        }else{
-            setquantity(quantity + 1)
+    }else{
+        setquantity(quantity + 1)
 
-        }
+    } 
+    setTotalPrice(totalPrice)
+      console.log(totalPrice) 
+       
         
-
-           
-        
-             
+    setTotalPrice(totalPrice + details.price)
+      console.log(totalPrice)
 
     }
 
-     const toggleCart = (state) => {
-        setCart(state)
-     }
+    const toggleCart = (state) => {
+      setCart(state)
+    }
 
-    // const removeItemId = () => {
+    
+    
 
-    // }
-
-    // const clearCart = () => {
-
-    // }
-
-    // const isInCart = () => {
-
-    // }
+    
 
 
   return (
