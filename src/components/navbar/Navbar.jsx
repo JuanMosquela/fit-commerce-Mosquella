@@ -1,13 +1,15 @@
 import './navbar.css';
 import { HiMenu, HiX } from "react-icons/hi";
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import CartWidget from '../cartWidget/CartWidget';
 import { Link } from 'react-router-dom';
 import MenuPopupState from '../menuPopupState/MenuPopupState';
+import CartList from '../cartList/CartList';
+
 
 const Navbar = () => {
 
-  const [menu, setMenu] = useState(false)
+  const [menu, setMenu] = useState(false)   
 
   return (
     <>
@@ -19,9 +21,12 @@ const Navbar = () => {
               <MenuPopupState />                          
             </ul>
         </nav>        
+        
+        
         <CartWidget />
+        <CartList />
     </header>
-      <div className="menu" >
+    <div className="menu" >
         <HiMenu className='bars' onClick={() => setMenu(true)} />
         {menu && (            
           <ul className='container-menu'>

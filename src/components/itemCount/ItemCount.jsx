@@ -3,8 +3,43 @@ import {AiOutlineMinus} from 'react-icons/ai';
 import CardActions from '@mui/material/CardActions';
 import Button from '@mui/material/Button';
 import './itemCount.css'
+import { useState } from 'react';
+import Swal from 'sweetalert2';
 
-const ItemCount = ({ handleClickMinus, handleClickPlus, onAdd, btnClick }) => {    
+
+const ItemCount = ({ details:{title, price, stock}, initial }) => {  
+    
+  const [btnClick, setBtnClick] = useState(initial)
+
+  const onAdd = (btnClick) => {
+        if(btnClick === 0){
+            return
+        }else{
+            Swal.fire({
+                title: 'Success!',
+                text: `usted ha sumado ${btnClick} ${title} por ${btnClick*price}`,
+                icon: 'success',
+                confirmButtonText: 'Cool'
+            })
+        }        
+    }
+
+  
+
+  const handleClickPlus = () => {
+    if(btnClick >= stock){
+        return
+    }
+    setBtnClick(btnClick + 1)
+    
+   }
+
+    const handleClickMinus = () => {
+        if(btnClick === 0){
+            return
+        }
+        setBtnClick(btnClick - 1)
+    }
 
   return (
     
@@ -36,20 +71,20 @@ const ItemCount = ({ handleClickMinus, handleClickPlus, onAdd, btnClick }) => {
         </Button>
         <Button
                 onClick={() => onAdd(btnClick)} 
-                variant='contained'                                        
+                variant='outlined'                                        
                 sx={{ 
                     width:'100%',
-                    backgroundColor:'#333',
-                    fontSize:'1.4rem',
-                    '&:hover': {
-                        background: "#faba42",
-                    },
+                    fontSize:'1.4rem',                                                                            
+                    display:'flex',
+                    justifyContent:'space-around',
+                    alignItems:'center',
+                    color:'#333',                    
                     marginLeft:'0px !important',
 
 
             }}
             >
-            add to cart
+            buy product
         </Button>
     </CardActions>
     )

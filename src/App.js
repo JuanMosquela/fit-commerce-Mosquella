@@ -5,25 +5,30 @@ import ItemDetailContainer from './components/itemDetailContainer/ItemDetailCont
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Footer from './components/footer/Footer';
 import ScrollToTop from './components/ScrollToTop';
-
-
-
+import CartProvider from './components/context/CartProvider';
 
 
 function App() {
+
+ 
+
   return (
-    <div className="App">
+    <div className="App" >
+        
       <BrowserRouter>
-        <Navbar />
-        <ScrollToTop />
-        <Routes>
-          <Route path='/' element={<ItemListContainer />} />
-          <Route path='/category/:id' element={<ItemListContainer />} />
-          <Route path='/item/:id' element={<ItemDetailContainer />} />
-        </Routes>
-        <Footer />        
+        <CartProvider>
+          <Navbar />
+          <ScrollToTop />
+          <Routes>
+            <Route path='/' element={<ItemListContainer />} />
+            <Route path='/category/:id' element={<ItemListContainer />} />
+            <Route path='/item/:id' element={<ItemDetailContainer />} />
+          </Routes>
+          <Footer />
+        </CartProvider>        
               
-      </BrowserRouter>   
+      </BrowserRouter>
+        
 
     </div>
   );

@@ -6,50 +6,24 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import ItemCount from '../itemCount/ItemCount';
 import './itemDetail.css';
-import { useState } from 'react';
-import Swal from 'sweetalert2';
+
+
 import { AiFillStar } from 'react-icons/ai';
-import Item from '../Item/Item';
+
+import { Button } from '@mui/material';
+import { ThemeContext } from '../../App';
+import { CartContext } from '../context/CartProvider';
+import { useContext } from 'react';
 
 
-const ItemDetail = ({ stock, initial, details }) => {
-
-  const [btnClick, setBtnClick] = useState(initial)
-
-  console.log(details)
-
-  
+const ItemDetail = ({ details }) => {
 
   const { title, price, pictureURL, description, category } = details
 
-  console.log(pictureURL)
+  const { addItem, cart } = useContext(CartContext)
 
-    const handleClickPlus = () => {
-        if(btnClick >= stock){
-            return
-        }
-        setBtnClick(btnClick + 1)
-    }
-
-    const handleClickMinus = () => {
-        if(btnClick === 0){
-            return
-        }
-        setBtnClick(btnClick - 1)
-    }
-
-    const onAdd = (btnClick) => {
-        if(btnClick === 0){
-            return
-        }else{
-            Swal.fire({
-                title: 'Success!',
-                text: `usted ha sumado ${btnClick} ${title}`,
-                icon: 'success',
-                confirmButtonText: 'Cool'
-            })
-        }        
-    }
+  
+  
 
   return (
     <Card className='container-product' sx={{ display: 'flex', alignItems:'center', justifyContent:'center', padding:'0 2%', gap:'3rem' }}>
@@ -60,10 +34,7 @@ const ItemDetail = ({ stock, initial, details }) => {
         image={pictureURL}
         alt="Live from space album cover"
         
-      />
-      
-     
-      
+      />     
       
       <Box sx={{ display: 'flex', flexDirection: 'column', maxWidth:'500px' }}>
         <CardContent sx={{ flex: '1 0 auto' }}>
@@ -89,7 +60,25 @@ const ItemDetail = ({ stock, initial, details }) => {
             $ {price}
           </Typography>
         </CardContent>
-        <ItemCount handleClickMinus={handleClickMinus} handleClickPlus={handleClickPlus} onAdd={onAdd} btnClick={btnClick} />        
+        <ItemCount details={details} initial={1} />
+        <Button
+                
+                variant='contained' 
+                onClick={() => addItem(details)}                                       
+                sx={{ 
+                    width:'100%',
+                    backgroundColor:'#333',
+                    fontSize:'1.4rem',
+                    '&:hover': {
+                        background: "#faba42",
+                    },
+                    marginLeft:'0px !important',
+
+
+            }}
+            >
+            add to cart
+        </Button>       
         
       </Box>
     </Card>

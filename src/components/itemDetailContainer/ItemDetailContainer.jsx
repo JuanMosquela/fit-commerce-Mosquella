@@ -15,7 +15,7 @@ const ItemDetailContainer = () => {
   
   const {id} = useParams(); 
 
-  console.log(productsData) 
+   
 
   useEffect(() => {
     new Promise((resolve, reject) => {      
@@ -40,7 +40,7 @@ const ItemDetailContainer = () => {
 
   return (
     <div className="item-detail-container">
-      <ItemDetail stock={5} initial={1} details={details}  />
+      <ItemDetail details={details}  />
       <Carrusel data={data} />
           
     </div>

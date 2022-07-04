@@ -11,8 +11,8 @@ const Carrusel = ({ data }) => {
         <div className="carrusel-images">
           <div className="slider">
               {data.map(product => (
-                <Link to={`/item/${product.id}`}>
-                  <Item key={product.id} className='product-image' product={product} />
+                <Link key={product.id} to={`/item/${product.id}`}>
+                  <Item  className='product-image' product={product} />
                 </Link>
             ))}
           </div>
