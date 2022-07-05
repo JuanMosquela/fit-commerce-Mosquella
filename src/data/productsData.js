@@ -8,7 +8,7 @@ let productsData = [
         price: 2000,
         pictureURL: 'https://http2.mlstatic.com/D_NQ_NP_625221-MLA46076980822_052021-O.webp',
         stock:5,
-        initial:1
+        quantity:0
   
     },
     {
@@ -20,7 +20,7 @@ let productsData = [
         price: 1800,
         pictureURL: 'https://http2.mlstatic.com/D_NQ_NP_813719-MLA46248974687_062021-O.webp',
         stock:5,
-        initial:1
+        quantity:0
   
     },
     {
@@ -39,7 +39,7 @@ let productsData = [
 
         ],
         stock:5,
-        initial:1
+        quantity:0
   
     },
     {
@@ -51,7 +51,7 @@ let productsData = [
       price: 2800,
       pictureURL: 'https://www.farmacialeloir.com.ar/img/articulos/2021/09/ena_whey_x_pro_complex_protein_imagen1.jpg',
       stock:5,
-      initial:1
+      quantity:0
 
    },
    {
@@ -63,7 +63,7 @@ let productsData = [
     price: 3000,
     pictureURL: 'https://http2.mlstatic.com/D_NQ_NP_671229-MLA48863312936_012022-O.webp',
     stock:5,
-    initial:1
+    quantity:0
 
 },
 {
@@ -75,7 +75,7 @@ let productsData = [
     price: 2300,
     pictureURL: 'https://http2.mlstatic.com/D_NQ_NP_957539-MLA50144895276_052022-O.webp',
     stock:5,
-    initial:1
+    quantity:0
 
 },
 {
@@ -87,7 +87,7 @@ let productsData = [
     price: 2400,
     pictureURL: 'https://http2.mlstatic.com/D_NQ_NP_649385-MLA43464749729_092020-O.webp',
     stock:5,
-    initial:1
+    quantity:0
 
 },
 {
@@ -99,7 +99,7 @@ let productsData = [
   price: 2800,
   pictureURL: 'https://d3ugyf2ht6aenh.cloudfront.net/stores/835/718/products/whey_banana1-45b82fe9afe35b613f16093600611536-640-0.jpg',
   stock:5,
-  initial:1
+  quantity:0
 
 },
 

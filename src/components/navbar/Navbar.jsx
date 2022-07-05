@@ -1,10 +1,10 @@
 import './navbar.css';
 import { HiMenu, HiX } from "react-icons/hi";
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import CartWidget from '../cartWidget/CartWidget';
 import { Link } from 'react-router-dom';
 import MenuPopupState from '../menuPopupState/MenuPopupState';
-import CartList from '../cartList/CartList';
+import Cart from '../cart/Cart';
 
 
 const Navbar = () => {
@@ -24,7 +24,7 @@ const Navbar = () => {
         
         
         <CartWidget />
-        <CartList />
+        <Cart />
     </header>
     <div className="menu" >
         <HiMenu className='bars' onClick={() => setMenu(true)} />

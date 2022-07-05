@@ -1,6 +1,7 @@
 import { Grid } from "@mui/material";
 import Item from "../Item/Item";
 import Heading from "../heading/Heading";
+import "./style.css"
 
 const ItemList = ({ data }) => {   
 
@@ -15,6 +16,8 @@ const ItemList = ({ data }) => {
           <Item key={product.id} product={product} />
         ))}
       </Grid> 
+
+      
 
 
     </>   

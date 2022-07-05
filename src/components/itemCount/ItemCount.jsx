@@ -3,15 +3,12 @@ import {AiOutlineMinus} from 'react-icons/ai';
 import CardActions from '@mui/material/CardActions';
 import Button from '@mui/material/Button';
 import './itemCount.css'
-import { useContext, useState } from 'react';
-import Swal from 'sweetalert2';
-import { CartContext } from '../context/CartProvider';
+import { useState } from 'react';
 
 
 const ItemCount = () => { 
 
-  const [btnClick, setBtnClick] = useState(1) 
-    
+  const [btnClick, setBtnClick] = useState(1)     
   
 
   const handleClickPlus = () => {

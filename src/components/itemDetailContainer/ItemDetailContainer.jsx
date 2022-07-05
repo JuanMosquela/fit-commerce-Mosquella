@@ -11,36 +11,34 @@ const ItemDetailContainer = () => {
 
   const [data, setData] = useState([])
 
-  const [details, setDetails] = useState([]);  
+  const [product, setProduct] = useState([]);  
   
   const {id} = useParams(); 
 
    
 
   useEffect(() => {
-    new Promise((resolve, reject) => {      
+    
+      new Promise((resolve, reject) => {      
       
-      resolve(productsData.find(product => product.id == id))        
-    })
-    .then((res) => setDetails(res))  
+        resolve(productsData)        
+      })
+      .then((res) => {
+        setData(res)
+        setProduct(res.find(product => product.id === Number(id)))})  
+
+    
+    
    
     
   }, [id])
 
-  useEffect(() => {    
-
-    new Promise((resolve, reject) => {
-      resolve(productsData)        
-    })
-    .then((res) => setData(res))
-    
-    
-  }, [])
+  
 
 
   return (
     <div className="item-detail-container">
-      <ItemDetail details={details}  />
+      <ItemDetail product={product}  />
       <Carrusel data={data} />
           
     </div>

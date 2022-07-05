@@ -6,21 +6,28 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import ItemCount from '../itemCount/ItemCount';
 import './itemDetail.css';
+import { Link } from 'react-router-dom';
 
 
 import { AiFillStar } from 'react-icons/ai';
 
 import { Button } from '@mui/material';
-import { ThemeContext } from '../../App';
-import { CartContext } from '../context/CartProvider';
+
+import { CartContext } from '../../context/CartProvider';
 import { useContext } from 'react';
 
 
-const ItemDetail = ({ details }) => {
+const ItemDetail = ({ product }) => {
 
-  const { title, price, pictureURL, description, category } = details
+  const { title, price, pictureURL, description, category } = product
 
-  const { addItem, cart, onAdd } = useContext(CartContext)
+  const { addItem, onAdd } = useContext(CartContext)
+
+  
+
+
+
+  
 
   
   
@@ -61,11 +68,12 @@ const ItemDetail = ({ details }) => {
           </Typography>
         </CardContent>
         <Box sx={{ display:'flex', justifyContent:'space-between', alignItems:'center'  }}>
-          <ItemCount />
+          <ItemCount quantity={product.quantity}/>
           <Button
                   
                   variant='contained' 
-                  onClick={() => addItem(details)}                                       
+                  onClick={() => addItem(product)} 
+                                                        
                   sx={{ 
                       width:'100%',
                       backgroundColor:'#333',
@@ -81,6 +89,28 @@ const ItemDetail = ({ details }) => {
               add to cart
           </Button>      
         </Box>
+        <Link to='/cart/:id'>
+          <Button
+                    
+                    variant='contained' 
+                    onClick={() => onAdd(product.stock)}
+                    
+                                                          
+                    sx={{ 
+                        width:'100%',
+                        backgroundColor:'#333',
+                        fontSize:'1.4rem',
+                        '&:hover': {
+                            background: "#faba42",
+                        },
+                        marginLeft:'0px !important',
+
+
+                }}
+                >
+                Buy
+          </Button>   
+        </Link>
         
          
         
