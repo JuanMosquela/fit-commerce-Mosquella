@@ -22,13 +22,11 @@ const ItemListContainer = () => {
       .then((res) => setData(res))    
 
     }else{
-      setTimeout(() => {
-        new Promise((resolve, reject) => {
-          resolve(productsData)        
-        })
-        .then((res) => setData(res))
-        .then(() => setLoading(false)) 
-      }, 500); 
+      new Promise((resolve, reject) => {
+        resolve(productsData)        
+      })
+      .then((res) => setData(res))
+      .then(() => setLoading(false)) 
 
     }    
     

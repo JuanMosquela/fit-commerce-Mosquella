@@ -12,7 +12,7 @@ const CartProvider = ({ children }) => {
 
     const [totalPrice, setTotalPrice] = useState(0)
 
-    const addItem = (product) => {  
+    const addItem = (product, count) => {      
 
       const inCart = cartItems.find(item => {
         return item.id === product.id
@@ -22,32 +22,38 @@ const CartProvider = ({ children }) => {
         setCartItems(
           cartItems.map(item => {
             if(item.id === product.id){
-              return { ...inCart, quantity: inCart.quantity + 1 }
+              return { ...inCart, amount: inCart.amount + 1 }
             }else return item
           })
         )
       }else{
-        setCartItems([...cartItems, {...product, quantity: 1}])
+        setCartItems([...cartItems, {...product, amount: 1}])
         
-      } 
+      }   
 
-      setQuantity(quantity + 1)
-
-      
-      console.log(quantity)
-      
-
-      console.log(cartItems)  
-
+    setQuantity(quantity + count) 
   }
 
   const toggleCart = (state) => {
     setShowCart(state)
   }
 
-  const onAdd = (stock) => {
-    console.log(stock)
+  const onAdd = (quantity) => {
+    console.log(quantity)
   }
+
+  const removeItem = (product) => {
+    const removeProduct = cartItems.filter(item => item.id !== product.id)
+
+    if(removeProduct){
+      setCartItems(removeProduct)
+
+      
+    }
+
+  }
+
+  
 
   
 
@@ -58,7 +64,7 @@ const CartProvider = ({ children }) => {
 
 
   return (
-    <CartContext.Provider value={{ addItem,toggleCart, quantity, showCart, cartItems, totalPrice, onAdd }}>
+    <CartContext.Provider value={{ addItem,toggleCart, quantity, showCart, cartItems, totalPrice, onAdd, removeItem }}>
         {children}
     </CartContext.Provider>
   )

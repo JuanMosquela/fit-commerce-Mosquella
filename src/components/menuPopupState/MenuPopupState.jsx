@@ -29,7 +29,7 @@ export default function MenuPopupState() {
     <PopupState variant="popover" popupId="demo-popup-menu">
       {(popupState) => (
         <>
-          <Button variant="contained" sx={{ backgroundColor:'orange', fontSize:'1.2rem' }} {...bindTrigger(popupState)}>
+          <Button sx={{fontSize:'1.2rem', color:'#FFF' }} {...bindTrigger(popupState)}>
             Categorias
           </Button>
           <Menu {...bindMenu(popupState)}>             

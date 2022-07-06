@@ -7,6 +7,10 @@
     position: relative;
 }
 
+.cart-icon:focus div{
+    background-color: aqua;
+}
+
 .cart-item-total{
     display: flex;
     justify-content: center;

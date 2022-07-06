@@ -4,7 +4,7 @@ import { useState } from 'react';
 import CartWidget from '../cartWidget/CartWidget';
 import { Link } from 'react-router-dom';
 import MenuPopupState from '../menuPopupState/MenuPopupState';
-import Cart from '../cart/Cart';
+
 
 
 const Navbar = () => {
@@ -17,14 +17,14 @@ const Navbar = () => {
         <Link className='logo' to='/'>PHYSICAL POINT</Link>
         <nav>
             <ul className='container-links'>
-              <li><Link to='/'>Home</Link></li>
+              
               <MenuPopupState />                          
             </ul>
         </nav>        
         
         
         <CartWidget />
-        <Cart />
+        
     </header>
     <div className="menu" >
         <HiMenu className='bars' onClick={() => setMenu(true)} />

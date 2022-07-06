@@ -21,15 +21,7 @@ const ItemDetail = ({ product }) => {
 
   const { title, price, pictureURL, description, category } = product
 
-  const { addItem, onAdd } = useContext(CartContext)
-
-  
-
-
-
-  
-
-  
+  const { onAdd } = useContext(CartContext)  
   
 
   return (
@@ -67,33 +59,15 @@ const ItemDetail = ({ product }) => {
             $ {price}
           </Typography>
         </CardContent>
-        <Box sx={{ display:'flex', justifyContent:'space-between', alignItems:'center'  }}>
-          <ItemCount quantity={product.quantity}/>
-          <Button
-                  
-                  variant='contained' 
-                  onClick={() => addItem(product)} 
-                                                        
-                  sx={{ 
-                      width:'100%',
-                      backgroundColor:'#333',
-                      fontSize:'1.4rem',
-                      '&:hover': {
-                          background: "#faba42",
-                      },
-                      marginLeft:'0px !important',
-
-
-              }}
-              >
-              add to cart
-          </Button>      
-        </Box>
-        <Link to='/cart/:id'>
+        
+        <ItemCount product={product}/>
+          
+        
+        <Link to='/cart'>
           <Button
                     
                     variant='contained' 
-                    onClick={() => onAdd(product.stock)}
+                    onClick={() => onAdd(product.quantity)}
                     
                                                           
                     sx={{ 

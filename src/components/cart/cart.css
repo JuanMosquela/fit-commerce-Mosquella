@@ -1,0 +1,98 @@
+.cart-list-container{    
+    box-shadow: 1px 7px 15px rgba(0, 0, 0, .2);
+    min-height: 100vh; 
+    background-color: #EEEEEE; 
+    
+    padding: 5rem 10%;
+    
+}
+
+.arrow-back{
+    font-size: 3rem;
+    color: #000;
+    display: block;
+    cursor: pointer;
+}
+
+.cart-list-empty{
+    display: flex;
+    min-height: 100vh;   
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;    
+}
+
+.cart-list-empty h3{
+    font-size: 2.4rem;
+    margin-bottom: 2rem;
+}
+.cart-list-empty button{
+    background-color: orange;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    font-size: 2rem;
+    color: #FFF;
+    border: none;
+    cursor: pointer;
+}
+
+.cart-list-empty button:hover{
+    transform: scale(1.1);
+}
+
+.cart-icon-empty{
+    font-size: 10rem;
+}
+
+.cart-product-list{
+  
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #FFF;
+    border-radius: 12px;
+    
+    
+
+}
+
+.cart-product-list figure{
+    padding: 3rem 0;
+    
+    
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    
+}
+
+.cart-product-list img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+   
+}
+
+
+
+.product-info h4{
+    font-size: 2rem;
+
+
+}
+.product-info h5{
+    font-size: 1.6rem;
+
+
+}
+
+.btn-container{
+    display: flex;
+    align-items: center;
+}
+
+.btn-container .remove-btn{
+    font-size: 5rem;
+    cursor: pointer;
+    color: red;
+}

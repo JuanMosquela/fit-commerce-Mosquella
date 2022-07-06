@@ -3,28 +3,42 @@ import {AiOutlineMinus} from 'react-icons/ai';
 import CardActions from '@mui/material/CardActions';
 import Button from '@mui/material/Button';
 import './itemCount.css'
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { CartContext } from '../../context/CartProvider';
 
 
-const ItemCount = () => { 
+const Itemcount = ({ product }) => { 
 
-  const [btnClick, setBtnClick] = useState(1)     
+   
+
+    const {addItem} = useContext(CartContext)
+
+    console.log(product)
+
+    
+
+    
+
+  const [count, setCount] = useState(0)     
   
 
   const handleClickPlus = () => {
-    if(btnClick >= 5){
-        return
-    }
-    setBtnClick(btnClick + 1)
+    
+    setCount(count + 1)
+    
+    
+
+     
     
    }
 
     const handleClickMinus = () => {
-        if(btnClick === 0){
+        if(count === 0){
             return
         }
-        setBtnClick(btnClick - 1)
+        setCount(count - 1)
     }
+    console.log(count)
     
 
   
@@ -51,17 +65,36 @@ const ItemCount = () => {
                 onClick={handleClickMinus}
             />
 
-            {btnClick}
+            {count}
         
             <AiOutlinePlus                    
                 onClick={handleClickPlus} 
             />
         </Button>
+        <Button
+                  
+                  variant='contained' 
+                  onClick={() => addItem(product, count)} 
+                                                        
+                  sx={{ 
+                      width:'100%',
+                      backgroundColor:'#333',
+                      fontSize:'1.4rem',
+                      '&:hover': {
+                          background: "#faba42",
+                      },
+                      marginLeft:'0px !important',
+
+
+              }}
+              >
+              add to cart
+          </Button>      
         
     </CardActions>
     )
     }
 
-export default ItemCount
+export default Itemcount
 
 

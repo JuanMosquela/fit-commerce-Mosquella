@@ -6,14 +6,23 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Footer from './components/footer/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import CartProvider from './context/CartProvider';
+import Cart from './components/cart/Cart';
+
+
+
+
 
 
 function App() {
 
+  
+
+ 
+
  
 
   return (
-    <div className="App" >
+    <div className="App"  >
         
       <BrowserRouter>
         <CartProvider>
@@ -23,6 +32,7 @@ function App() {
             <Route path='/' element={<ItemListContainer />} />
             <Route path='/category/:id' element={<ItemListContainer />} />
             <Route path='/item/:id' element={<ItemDetailContainer />} />
+            <Route path='/cart' element={<Cart />} />
           </Routes>
           <Footer />
         </CartProvider>        

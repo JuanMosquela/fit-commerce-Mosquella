@@ -1,27 +1,20 @@
-import { useContext } from "react"
-import { CartContext } from "../../context/CartProvider";
-import { MdOutlineKeyboardArrowLeft } from 'react-icons/md'
-import './cartlist.css'
-
-import { Link } from "react-router-dom";
-
-import ItemCount from "../itemCount/ItemCount";
-import { TiDeleteOutline } from 'react-icons/ti'
+import { useContext } from "react";
 import { AiOutlineShopping } from "react-icons/ai";
+import { TiDeleteOutline } from "react-icons/ti";
+import { Link } from "react-router-dom";
+import { CartContext } from "../../context/CartProvider";
+import ItemCount from "../itemCount/ItemCount";
+import './cart.css'
+
 
 
 const Cart = () => {
-    const { showCart, toggleCart, cartItems, totalItems, totalPrice } = useContext(CartContext)
-   
-    
+
+    const { cartItems, toggleCart, removeItem } = useContext(CartContext)
+
   return (
-    <>
-        {showCart && (
-            <div className="cart-list-container" >
-                <MdOutlineKeyboardArrowLeft className="arrow-back" onClick={() => toggleCart(false)}/>
-                <span>Total items</span>
-                <span>({totalItems})</span>
-                {cartItems.length < 1 ? (
+    <div className="cart-list-container">
+        {cartItems.length < 1 ? (
                     <div className="cart-list-empty">
                         <h3>Your cart its empty</h3>
                         <AiOutlineShopping className="cart-icon-empty" />
@@ -36,30 +29,26 @@ const Cart = () => {
                     
 
 
-                    <div key={product.id} className="cart-product">
+                    <div key={product.id} className="cart-product-list">
+                       <figure>
                         <img src={product.pictureURL} alt={product.title}/>
-                        <div className="product-content">
-                            <div className="product-info">
-                                <h4>{product.title}</h4>
-                                <h5>${product.price}</h5> 
-                            </div>
-                            <div className="btn-container">
-                              <ItemCount />
-                              <TiDeleteOutline className="remove-btn" />
-                            </div>                           
-
+                       </figure>
+                       <div className="product-info">
+                            <h4>{product.title}</h4>
+                            <h5>${product.price}</h5> 
                         </div>
+                        <div className="btn-container">
+                            <ItemCount />
+                            <TiDeleteOutline className="remove-btn" onClick={() => removeItem(product)} />
+                        </div>   
+                        
+                                                    
+
+                        
                         
                     </div>
                 ))}
-                
-                <p>Total price: {totalPrice}</p>
-                
-                
-                
-            </div>
-        )}
-    </>
+    </div>
   )
 }
 export default Cart
