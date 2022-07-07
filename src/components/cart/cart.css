@@ -1,18 +1,21 @@
-.cart-list-container{    
-    box-shadow: 1px 7px 15px rgba(0, 0, 0, .2);
-    min-height: 100vh; 
-    background-color: #EEEEEE; 
-    
-    padding: 5rem 10%;
+.cart-section{
+    padding: 5% 10%;
+    background-color: #EEEEEE;
+    min-height: 100vh;
     
 }
 
-.arrow-back{
-    font-size: 3rem;
-    color: #000;
-    display: block;
-    cursor: pointer;
+.cart-list-container{    
+    box-shadow: 1px 7px 15px rgba(0, 0, 0, .1);
+    height: 600px ; 
+    overflow-y: scroll;    
+    background-color: #FFF;    
+    display: flex;    
+    flex-direction: column;    
+    
 }
+
+
 
 .cart-list-empty{
     display: flex;
@@ -34,6 +37,7 @@
     color: #FFF;
     border: none;
     cursor: pointer;
+  
 }
 
 .cart-list-empty button:hover{
@@ -49,7 +53,9 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: #FFF;
+    
+    
+    
     border-radius: 12px;
     
     
@@ -57,11 +63,11 @@
 }
 
 .cart-product-list figure{
-    padding: 3rem 0;
+    padding: 2rem 0;
     
     
-    width: 200px;
-    height: 200px;
+    width: 140px;
+    height: 140px;
     overflow: hidden;
     
 }
@@ -76,12 +82,12 @@
 
 
 .product-info h4{
-    font-size: 2rem;
+    font-size: 1.6rem;
 
 
 }
 .product-info h5{
-    font-size: 1.6rem;
+    font-size: 1.2rem;
 
 
 }
@@ -92,7 +98,7 @@
 }
 
 .btn-container .remove-btn{
-    font-size: 5rem;
+    font-size: 3rem;
     cursor: pointer;
-    color: red;
+    color: rgb(204, 56, 56);
 }

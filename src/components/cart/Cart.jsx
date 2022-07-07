@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { AiOutlineShopping } from "react-icons/ai";
-import { TiDeleteOutline } from "react-icons/ti";
+import { AiFillDelete } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { CartContext } from "../../context/CartProvider";
 import ItemCount from "../itemCount/ItemCount";
@@ -13,7 +13,8 @@ const Cart = () => {
     const { cartItems, toggleCart, removeItem } = useContext(CartContext)
 
   return (
-    <div className="cart-list-container">
+    <section className="cart-section">
+        <div className="cart-list-container">
         {cartItems.length < 1 ? (
                     <div className="cart-list-empty">
                         <h3>Your cart its empty</h3>
@@ -39,7 +40,7 @@ const Cart = () => {
                         </div>
                         <div className="btn-container">
                             <ItemCount />
-                            <TiDeleteOutline className="remove-btn" onClick={() => removeItem(product)} />
+                            <AiFillDelete className="remove-btn" onClick={() => removeItem(product)} />
                         </div>   
                         
                                                     
@@ -49,6 +50,7 @@ const Cart = () => {
                     </div>
                 ))}
     </div>
+    </section>
   )
 }
 export default Cart

@@ -12,7 +12,12 @@ const CartProvider = ({ children }) => {
 
     const [totalPrice, setTotalPrice] = useState(0)
 
-    const addItem = (product, count) => {      
+    const addItem = (product, count) => {
+      
+      if(count === 0){
+        console.log('el item agregado no puede tener 0 cantidad')
+        return 
+      }
 
       const inCart = cartItems.find(item => {
         return item.id === product.id
@@ -27,8 +32,7 @@ const CartProvider = ({ children }) => {
           })
         )
       }else{
-        setCartItems([...cartItems, {...product, amount: 1}])
-        
+        setCartItems([...cartItems, {...product, amount: 1}])        
       }   
 
     setQuantity(quantity + count) 
@@ -46,16 +50,10 @@ const CartProvider = ({ children }) => {
     const removeProduct = cartItems.filter(item => item.id !== product.id)
 
     if(removeProduct){
-      setCartItems(removeProduct)
-
-      
+      setCartItems(removeProduct)      
     }
 
-  }
-
-  
-
-  
+  } 
 
     
     
