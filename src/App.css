@@ -21,5 +21,9 @@ html{
     scroll-behavior:auto;
 }
 
+section{
+    overflow-x: hidden;
+}
+
 
 

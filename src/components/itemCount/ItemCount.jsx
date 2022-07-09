@@ -18,25 +18,18 @@ const Itemcount = ({ product }) => {
     const handleClick = (product, i) => {
         setCount(count + i)
 
-        const findItem = cartItems.find(item => {
-            return item.id === product.id              
+        // const findItem = cartItems.find(item => {
+        //     return item.id === product.id              
             
-        })       
+        // })       
 
-        addItem(findItem, i)
-        
-       
-        
-        
-
-
-        
+        addItem(product, i)        
         
     }
 
     console.log(cartItems)
 
-    console.log(count)
+    
 
   
   return (

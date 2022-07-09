@@ -4,10 +4,8 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import ItemCount from '../itemCount/ItemCount';
 import './itemDetail.css';
-import { Link } from 'react-router-dom';
-import { useState } from 'react';
+
 
 
 import { AiFillStar } from 'react-icons/ai';
@@ -16,23 +14,19 @@ import { Button } from '@mui/material';
 
 import { CartContext } from '../../context/CartProvider';
 import { useContext } from 'react';
-import Cart from '../cart/Cart';
+
 
 
 const ItemDetail = ({ product }) => {
 
   const { title, price, pictureURL, description, category } = product
 
-  const { addItem, showCart } = useContext(CartContext)  
-
-  
+  const { addItem } = useContext(CartContext)   
 
   const onAdd = (product) => {
     addItem(product)
 
-  }
-
-  
+  }  
   
 
   return (
@@ -70,8 +64,7 @@ const ItemDetail = ({ product }) => {
           <Typography variant="subtitle1" color="text.secondary" component="div" sx={{ fontSize:'2.4rem', color:'#faba42' }}>
             $ {price}
           </Typography>
-        </CardContent>   
-          
+        </CardContent>          
         
         
         <Box sx={{ display:'flex', gap:'2rem' }}>
@@ -111,14 +104,11 @@ const ItemDetail = ({ product }) => {
                   >
                   Buy
             </Button>   
-        </Box>
-        
-        
-         
+        </Box>        
         
       </Box>
     </Card>
-    {showCart && <Cart product={product} />}
+    
     </>
   )
 }

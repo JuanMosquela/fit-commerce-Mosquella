@@ -9,19 +9,9 @@ import './cart.css'
 
 
 
-const Cart = ({}) => {
+const Cart = () => {       
 
-       
-
-    const { cartItems, toggleCart, removeItem, totalPrice } = useContext(CartContext)
-
-    
-
-    
-
-    
-
-    
+    const { cartItems, toggleCart, removeItem, totalPrice } = useContext(CartContext)    
     
 
   return (
@@ -31,9 +21,7 @@ const Cart = ({}) => {
             <MdOutlineKeyboardArrowLeft className="back-icon" onClick={() => toggleCart(false)}/>
             <span>Precio total a pagar: ${totalPrice} </span>
          </div>
-        <div className="cart-list-container">
-
-            
+        <div className="cart-list-container">            
 
             {cartItems.length < 1 ? (
                         <div className="cart-list-empty">
@@ -45,9 +33,8 @@ const Cart = ({}) => {
                                 </button>
                             </Link>
                         </div>
-                    ) : cartItems.map(product => (                      
-
-
+                    ) : cartItems.map(product => (
+                        
                         <div className="cart-product-container">
                             <div key={product.id} className="cart-product-list">
                                 <figure>
@@ -56,7 +43,7 @@ const Cart = ({}) => {
                                 <div className="product-info">
                                     <h4>{product.title}</h4>
                                     <h5>${product.price * product.amount}</h5> 
-                                    <h5>X{product.amount}</h5>
+                                    
                                 </div>
                                 <div className="btn-container">
                                     <ItemCount product={product} />

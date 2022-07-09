@@ -1,5 +1,5 @@
 .cart-wrapper{
-    position: absolute;
+    position: fixed;
     top: 60px;
     right: 0;
     width: 100vw;
@@ -14,7 +14,7 @@
     position: fixed;
     top: 60px;
     right: 0;
-    width: 40%;
+    width: 50%;
     height: 100vh;
     background-color: #FFF;
     overflow-y: scroll;
@@ -112,11 +112,11 @@
     object-fit: contain;
 }
 
-.cart-product-list h4{
+.product-info h4{
     font-size: 1.8rem;
 }
 
-.cart-product-list h5{
+.product-info h5{
     font-size: 1.2rem;
 }
 
@@ -129,6 +129,35 @@
     color: red;
     font-size: 3rem;
 } 
+
+@media (max-width:800px){
+    .cart-section{
+        width: 80%;
+    }
+
+    .product-info h4{
+        font-size: 1.6rem;
+        
+    }
+    .cart-product-list figure{
+        width: 60px;
+        height: 100px;
+    }
+}
+
+
+@media (max-width:600px){
+    .cart-section{
+        width: 100%;
+    }
+
+    .product-info h4{
+        font-size: 1.2rem;
+        
+    }
+
+    
+}
 
 
 
