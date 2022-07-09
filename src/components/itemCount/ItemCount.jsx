@@ -8,14 +8,35 @@ import { CartContext } from '../../context/CartProvider';
 
 
 
-const Itemcount = ({ quantity }) => { 
+
+const Itemcount = ({ product }) => { 
+
+    const [count, setCount] = useState(product.amount)
+
+    const { cartItems, setCartItems, addItem } = useContext(CartContext)
     
-    const {handleClickMinus, handleClickPlus} = useContext(CartContext)
+    const handleClick = (product, i) => {
+        setCount(count + i)
+
+        const findItem = cartItems.find(item => {
+            return item.id === product.id              
+            
+        })       
+
+        addItem(findItem, i)
+        
+       
+        
+        
 
 
-  const [count, setCount] = useState(quantity)
+        
+        
+    }
 
-   console.log(quantity)  
+    console.log(cartItems)
+
+    console.log(count)
 
   
   return (
@@ -38,13 +59,13 @@ const Itemcount = ({ quantity }) => {
                 
             }}>                
             <AiOutlineMinus                    
-                onClick={handleClickMinus}
+                onClick={() => handleClick(product, -1)}
             />
 
             {count}
         
             <AiOutlinePlus                    
-                onClick={handleClickPlus} 
+                onClick={() => handleClick(product, +1)} 
             />
         </Button>
            

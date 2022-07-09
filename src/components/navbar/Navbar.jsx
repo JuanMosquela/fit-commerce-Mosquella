@@ -1,14 +1,9 @@
 import './navbar.css';
 import { HiMenu, HiX } from "react-icons/hi";
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import CartWidget from '../cartWidget/CartWidget';
 import { Link } from 'react-router-dom';
 import MenuPopupState from '../menuPopupState/MenuPopupState';
-import { CartContext } from '../../context/CartProvider';
-import Cart from '../cart/Cart';
-
-
-
 
 
 
@@ -16,8 +11,7 @@ import Cart from '../cart/Cart';
 const Navbar = () => {
 
   const [menu, setMenu] = useState(false) 
-  const {showCart} = useContext(CartContext)
-
+  
 
 
   return (
@@ -29,11 +23,11 @@ const Navbar = () => {
               
               <MenuPopupState />                          
             </ul>
-        </nav>        
+        </nav>     
         
         
         <CartWidget  />
-        {showCart && <Cart />}
+        
         
         
     </header>

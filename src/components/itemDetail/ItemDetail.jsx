@@ -7,6 +7,7 @@ import Typography from '@mui/material/Typography';
 import ItemCount from '../itemCount/ItemCount';
 import './itemDetail.css';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 
 import { AiFillStar } from 'react-icons/ai';
@@ -15,22 +16,28 @@ import { Button } from '@mui/material';
 
 import { CartContext } from '../../context/CartProvider';
 import { useContext } from 'react';
+import Cart from '../cart/Cart';
 
 
 const ItemDetail = ({ product }) => {
 
   const { title, price, pictureURL, description, category } = product
 
-  const { addItem } = useContext(CartContext)  
+  const { addItem, showCart } = useContext(CartContext)  
+
+  
 
   const onAdd = (product) => {
     addItem(product)
 
   }
+
+  
   
 
   return (
-    <Card className='container-product' sx={{ display: 'flex', alignItems:'center', justifyContent:'center', padding:'0 2%', gap:'3rem' }}>
+    <>
+      <Card className='container-product' sx={{ display: 'flex', alignItems:'center', justifyContent:'center', padding:'0 2%', gap:'3rem' }}>
       
       <CardMedia className='img'
         component="img"
@@ -111,6 +118,8 @@ const ItemDetail = ({ product }) => {
         
       </Box>
     </Card>
+    {showCart && <Cart product={product} />}
+    </>
   )
 }
 export default ItemDetail

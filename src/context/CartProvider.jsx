@@ -17,7 +17,7 @@ const CartProvider = ({ children }) => {
     
     
 
-    const addItem = (product) => {     
+    const addItem = (product, i) => {     
      
 
       const inCart = cartItems.find(item => {
@@ -29,7 +29,7 @@ const CartProvider = ({ children }) => {
           cartItems.map(item => {
             if(item.id === product.id){
               
-              return { ...inCart, amount:inCart.amount + 1 }
+              return { ...inCart, amount:inCart.amount + i }
               
             }else return item
           })
@@ -65,27 +65,14 @@ const CartProvider = ({ children }) => {
   
   }, [cartItems])  
   
-  const handleClickPlus = () => {
-    
-    
-    
-
-        
-    
-   }
-
-    const handleClickMinus = () => {
-      console.log('click')
-        
-        
-    }  
+  
 
       
     
 
 
   return (
-    <CartContext.Provider value={{ addItem,toggleCart, showCart, cartItems, totalPrice, removeItem, quantity, handleClickMinus, handleClickPlus }}>
+    <CartContext.Provider value={{ addItem,toggleCart, showCart, cartItems, totalPrice, removeItem, quantity}}>
         {children}
     </CartContext.Provider>
   )

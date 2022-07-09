@@ -9,7 +9,7 @@ import './cart.css'
 
 
 
-const Cart = () => {
+const Cart = ({}) => {
 
        
 
@@ -59,7 +59,7 @@ const Cart = () => {
                                     <h5>X{product.amount}</h5>
                                 </div>
                                 <div className="btn-container">
-                                    <ItemCount quantity={product.amount} />
+                                    <ItemCount product={product} />
                                     <AiFillDelete className="remove-btn" onClick={() => removeItem(product)} />
                                 </div>                      
                             
