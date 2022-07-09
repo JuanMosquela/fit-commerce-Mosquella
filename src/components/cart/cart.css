@@ -1,17 +1,58 @@
+.cart-wrapper{
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, .4);
+    
+    
+}
+
 .cart-section{
-    padding: 5% 10%;
-    background-color: #EEEEEE;
-    min-height: 100vh;
+    position: fixed;
+    top: 60px;
+    right: 0;
+    width: 40%;
+    height: 100vh;
+    background-color: #FFF;
+    overflow-y: scroll;
+   
+    
+}
+
+.container-total-price{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cart-section span{
+    font-size: 1.4rem;
+    display: block;
+    text-align: center;     
+    width: 100%;   
+    font-weight: 600;
+    
+    
     
 }
 
 .cart-list-container{    
-    box-shadow: 1px 7px 15px rgba(0, 0, 0, .1);
-    height: 600px ; 
-    overflow-y: scroll;    
+    box-shadow: 1px 7px 15px rgba(0, 0, 0, .1);     
     background-color: #FFF;    
     display: flex;    
-    flex-direction: column;    
+    flex-direction: column;  
+    height: 100%;  
+    padding-top: 3rem;
+   
+    
+}
+
+.back-icon{
+    font-size: 4rem;
+    cursor: pointer;
     
 }
 
@@ -19,9 +60,8 @@
 
 .cart-list-empty{
     display: flex;
-    min-height: 100vh;   
-    justify-content: center;
     flex-direction: column;
+    padding-top: 10rem;   
     align-items: center;    
 }
 
@@ -48,48 +88,36 @@
     font-size: 10rem;
 }
 
-.cart-product-list{
-  
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    
-    
-    
-    border-radius: 12px;
-    
-    
 
+.cart-product-list{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem 0;  
+    
+}
+
+.cart-product-container{
+    padding: 0 2rem;
+    
 }
 
 .cart-product-list figure{
-    padding: 2rem 0;
-    
-    
-    width: 140px;
-    height: 140px;
-    overflow: hidden;
-    
+    width: 80px;
+    height: 120px;
 }
-
-.cart-product-list img{
+.cart-product-list figure img{
     width: 100%;
     height: 100%;
     object-fit: contain;
-   
 }
 
-
-
-.product-info h4{
-    font-size: 1.6rem;
-
-
+.cart-product-list h4{
+    font-size: 1.8rem;
 }
-.product-info h5{
+
+.cart-product-list h5{
     font-size: 1.2rem;
-
-
 }
 
 .btn-container{
@@ -98,7 +126,11 @@
 }
 
 .btn-container .remove-btn{
+    color: red;
     font-size: 3rem;
-    cursor: pointer;
-    color: rgb(204, 56, 56);
-}
+} 
+
+
+
+
+

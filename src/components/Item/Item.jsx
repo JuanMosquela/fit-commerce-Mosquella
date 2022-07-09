@@ -9,25 +9,22 @@ import { Grid } from '@mui/material'
 const Item = ({ product}) => {    
 
   return (
-    <div>
-      
+    <div>      
       <Grid key={product.id} item md={3} sm={4} xs={12} >        
           <Link to={`/item/${product.id}`}>
             <Card className='card-item' sx={{ 
                 maxHeight:'320px', maxWidth:'220px', transition:'.2s ease', borderRadius:'7px' 
               }}>
-              <CardContent>        
-                  
-                  <CardMedia className='img' sx={{
-                      
+              <CardContent>                 
+                  <CardMedia className='item-img' sx={{                    
+                                          
                       width:'100%',
                       height:'220px',
                       objectFit:'contain',
                       marginBottom:'1.2rem'
-
                       }}
+                      
                       component="img"
-                      height="260"
                       image={product.pictureURL}
                       alt={product.title}
                       

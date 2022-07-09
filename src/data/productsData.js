@@ -99,7 +99,7 @@ let productsData = [
   price: 2800,
   pictureURL: 'https://d3ugyf2ht6aenh.cloudfront.net/stores/835/718/products/whey_banana1-45b82fe9afe35b613f16093600611536-640-0.jpg',
   stock:5,
-  amount:0
+  quantity:0
 
 },
 

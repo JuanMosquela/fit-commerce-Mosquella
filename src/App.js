@@ -13,6 +13,7 @@ import Cart from './components/cart/Cart';
 
 
 
+
 function App() {
 
   
@@ -27,6 +28,7 @@ function App() {
       <BrowserRouter>
         <CartProvider>
           <Navbar />
+          
           <ScrollToTop />
           <Routes>
             <Route path='/' element={<ItemListContainer />} />

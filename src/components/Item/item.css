@@ -1,5 +1,6 @@
 .card-item{
     width: 220px;
+   
 }
 
 .card-item:hover{
@@ -7,5 +8,10 @@
     
     transform: scale(1.05);
     cursor: pointer;
+}
+
+.item-img{
+    height: 230px;
+    object-fit: contain;
 }
 

@@ -21,7 +21,12 @@ const ItemDetail = ({ product }) => {
 
   const { title, price, pictureURL, description, category } = product
 
-  const { onAdd } = useContext(CartContext)  
+  const { addItem } = useContext(CartContext)  
+
+  const onAdd = (product) => {
+    addItem(product)
+
+  }
   
 
   return (
@@ -58,33 +63,49 @@ const ItemDetail = ({ product }) => {
           <Typography variant="subtitle1" color="text.secondary" component="div" sx={{ fontSize:'2.4rem', color:'#faba42' }}>
             $ {price}
           </Typography>
-        </CardContent>
-        
-        <ItemCount product={product}/>
+        </CardContent>   
           
         
-        <Link to='/cart'>
-          <Button
-                    
-                    variant='contained' 
-                    onClick={() => onAdd(product.quantity)}
-                    
+        
+        <Box sx={{ display:'flex', gap:'2rem' }}>
+          <Button                  
+                  variant='contained' 
+                  onClick={() => onAdd(product)} 
                                                           
-                    sx={{ 
-                        width:'100%',
-                        backgroundColor:'#333',
-                        fontSize:'1.4rem',
-                        '&:hover': {
-                            background: "#faba42",
-                        },
-                        marginLeft:'0px !important',
+                  sx={{ 
+                      width:'100%',
+                      backgroundColor:'#333',
+                      fontSize:'1.4rem',
+                      '&:hover': {
+                          background: "#faba42",
+                      },
+                      marginLeft:'0px !important',
+              }}
+              >
+              add to cart
+            </Button>   
+            <Button
+                      
+                      variant='contained' 
+                      onClick={() => onAdd(product.quantity)}
+                      
+                                                            
+                      sx={{ 
+                          width:'100%',
+                          backgroundColor:'#333',
+                          fontSize:'1.4rem',
+                          '&:hover': {
+                              background: "#faba42",
+                          },
+                          marginLeft:'0px !important',
 
 
-                }}
-                >
-                Buy
-          </Button>   
-        </Link>
+                  }}
+                  >
+                  Buy
+            </Button>   
+        </Box>
+        
         
          
         

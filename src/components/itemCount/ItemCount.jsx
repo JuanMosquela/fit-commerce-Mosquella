@@ -7,39 +7,15 @@ import { useContext, useState } from 'react';
 import { CartContext } from '../../context/CartProvider';
 
 
-const Itemcount = ({ product }) => { 
 
-   
-
-    const {addItem} = useContext(CartContext)
-
-    console.log(product)
-
+const Itemcount = ({ quantity }) => { 
     
+    const {handleClickMinus, handleClickPlus} = useContext(CartContext)
 
-    
 
-  const [count, setCount] = useState(0)     
-  
+  const [count, setCount] = useState(quantity)
 
-  const handleClickPlus = () => {
-    
-    setCount(count + 1)
-    
-    
-
-     
-    
-   }
-
-    const handleClickMinus = () => {
-        if(count === 0){
-            return
-        }
-        setCount(count - 1)
-    }
-    console.log(count)
-    
+   console.log(quantity)  
 
   
   return (
@@ -71,25 +47,7 @@ const Itemcount = ({ product }) => {
                 onClick={handleClickPlus} 
             />
         </Button>
-        <Button
-                  
-                  variant='contained' 
-                  onClick={() => addItem(product, count)} 
-                                                        
-                  sx={{ 
-                      width:'100%',
-                      backgroundColor:'#333',
-                      fontSize:'1.4rem',
-                      '&:hover': {
-                          background: "#faba42",
-                      },
-                      marginLeft:'0px !important',
-
-
-              }}
-              >
-              add to cart
-          </Button>      
+           
         
     </CardActions>
     )
