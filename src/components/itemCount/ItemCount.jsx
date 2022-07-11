@@ -13,23 +13,25 @@ const Itemcount = ({ product }) => {
 
     const [count, setCount] = useState(product.amount)
 
-    const { cartItems, setCartItems, addItem } = useContext(CartContext)
+    const { addItem } = useContext(CartContext)
     
-    const handleClick = (product, i) => {
-        setCount(count + i)
+    const handleClickPlus = (product, counter) => {
+        if(product.amount >= product.stock) return
+        setCount(count + counter)          
 
-        // const findItem = cartItems.find(item => {
-        //     return item.id === product.id              
-            
-        // })       
-
-        addItem(product, i)        
+        addItem(product, counter)        
         
     }
 
-    console.log(cartItems)
+    const handleClickMinus = (product, counter) => {
+        if(product.amount === 0) return
+        setCount(count + counter)          
 
-    
+        addItem(product, counter)        
+        
+    }
+
+     
 
   
   return (
@@ -51,17 +53,18 @@ const Itemcount = ({ product }) => {
                 color:'#333',              
                 
             }}>                
-            <AiOutlineMinus                    
-                onClick={() => handleClick(product, -1)}
+            <AiOutlineMinus 
+                style={{ fontSize:'1.8rem' }}                   
+                onClick={() => handleClickMinus(product, -1)}
             />
 
             {count}
         
-            <AiOutlinePlus                    
-                onClick={() => handleClick(product, +1)} 
+            <AiOutlinePlus 
+                style={{ fontSize:'1.8rem' }}                    
+                onClick={() => handleClickPlus(product, +1)} 
             />
-        </Button>
-           
+        </Button>           
         
     </CardActions>
     )

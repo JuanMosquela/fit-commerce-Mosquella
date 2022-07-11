@@ -15,7 +15,7 @@
     top: 60px;
     right: 0;
     width: 50%;
-    height: 100vh;
+    height: 90vh;
     background-color: #FFF;
     overflow-y: scroll;
    
@@ -26,6 +26,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    border-bottom: 1px solid #333;
 }
 
 .cart-section span{
@@ -129,6 +130,32 @@
     color: red;
     font-size: 3rem;
 } 
+
+.stock{
+    color: red;
+    animation: disapear 5s ease-in-out forwards;
+    
+}
+
+@keyframes disapear{
+
+    0%{
+        visibility: visible;
+        opacity: 1;
+    }
+
+    90%{
+        visibility: visible;
+        opacity: 1;
+
+    }
+
+    100%{
+        visibility: hidden;
+        opacity: 0;
+    }
+
+}
 
 @media (max-width:800px){
     .cart-section{

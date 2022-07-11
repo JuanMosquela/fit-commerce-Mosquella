@@ -35,7 +35,7 @@ const Cart = () => {
                         </div>
                     ) : cartItems.map(product => (
                         
-                        <div className="cart-product-container">
+                        <div key={product.id} className="cart-product-container">
                             <div key={product.id} className="cart-product-list">
                                 <figure>
                                     <img src={product.pictureURL} alt={product.title}/>
@@ -48,7 +48,8 @@ const Cart = () => {
                                 <div className="btn-container">
                                     <ItemCount product={product} />
                                     <AiFillDelete className="remove-btn" onClick={() => removeItem(product)} />
-                                </div>                      
+                                </div>  
+                                {product.amount >= product.stock && <p className="stock">{`stock surpass - max ${product.stock}`}</p>}                    
                             
                             </div>
                         </div>

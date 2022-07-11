@@ -10,41 +10,50 @@ const CartProvider = ({ children }) => {
 
     const [quantity, setQuantity] = useState(0)     
 
-    const [totalPrice, setTotalPrice] = useState(0) 
-    
-    
+    const [totalPrice, setTotalPrice] = useState(0)     
     
 
-    const addItem = (product, i) => { 
+    const addItem = (product, counter) => { 
 
-      i = (typeof i !== 'undefined') ?  i : 1         
-     
+      counter = (typeof counter !== 'undefined') ?  counter : 1 
+      
+      
 
       const inCart = cartItems.find(item => {
         return item.id === product.id
-      })           
+      })  
+      
+      
 
       if(inCart){
         setCartItems(
           cartItems.map(item => {
-            if(item.id === product.id){
-              
-              return { ...inCart, amount:inCart.amount + i }
+            
+            if(item.id === product.id){              
+              return { ...inCart, amount:inCart.amount + counter }
               
             }else return item
-          })
+          }) 
+
+          
+          
         )
       }else{
-        setCartItems([...cartItems, {...product, amount: 1}])        
-      }      
+        setCartItems([...cartItems, {...product, amount: 1, counter:1}])        
+      }
+      
+
+      
+      
+      
+      
     }    
 
   const removeItem = (product) => {
     const removeProduct = cartItems.filter(item => item.id !== product.id)    
 
     if(removeProduct){
-      setCartItems(removeProduct)  
-         
+      setCartItems(removeProduct)          
     }
   } 
 
@@ -52,19 +61,12 @@ const CartProvider = ({ children }) => {
     setShowCart(state)
   }
 
-  useEffect(() => {
-    setQuantity(
-      cartItems.reduce((previous,current) => previous + current.amount, 0)       
+  useEffect(() => {    
+    setQuantity(cartItems.reduce((previous,current) => previous + current.amount, 0)     
     ); 
-
     const total = cartItems.reduce((previous,current) => previous + current.amount * current.price, 0)
-
-    setTotalPrice(total)
-  
-  }, [cartItems]) 
-
-      
-    
+    setTotalPrice(total)  
+  }, [cartItems])     
 
 
   return (

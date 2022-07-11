@@ -5,6 +5,8 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import './itemDetail.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -24,13 +26,27 @@ const ItemDetail = ({ product }) => {
   const { addItem } = useContext(CartContext)   
 
   const onAdd = (product) => {
+    if(product.amount >= product.stock) return
+    product.amount++;
     addItem(product)
 
-  }  
+  } 
+
+  const notify = (product) => {
+    toast.success(`You bought ${product.amount} ${product.title}`, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,      
+      draggable: true,
+      progress: undefined,
+      });
+  };
   
 
   return (
     <>
+      <ToastContainer />
       <Card className='container-product' sx={{ display: 'flex', alignItems:'center', justifyContent:'center', padding:'0 2%', gap:'3rem' }}>
       
       <CardMedia className='img'
@@ -87,8 +103,7 @@ const ItemDetail = ({ product }) => {
             <Button
                       
                       variant='contained' 
-                      onClick={() => onAdd(product.quantity)}
-                      
+                      onClick={() => notify(product)}                      
                                                             
                       sx={{ 
                           width:'100%',
@@ -98,7 +113,6 @@ const ItemDetail = ({ product }) => {
                               background: "#faba42",
                           },
                           marginLeft:'0px !important',
-
 
                   }}
                   >

@@ -1,7 +1,7 @@
 .background{
     position: relative;    
     min-height: 80vh; 
-    overflow-x: hidden;  
+    overflow: hidden;  
 }
 
 .background img{
