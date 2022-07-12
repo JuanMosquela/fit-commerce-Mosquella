@@ -7,19 +7,16 @@ import Typography from '@mui/material/Typography';
 import './itemDetail.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
-
-
 import { AiFillStar } from 'react-icons/ai';
-
 import { Button } from '@mui/material';
-
 import { CartContext } from '../../context/CartProvider';
 import { useContext } from 'react';
 
 
 
 const ItemDetail = ({ product }) => {
+
+ 
 
   const { title, price, pictureURL, description, category } = product
 

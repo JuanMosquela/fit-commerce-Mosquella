@@ -1,12 +1,13 @@
 import Background from '../background/Background';
-import ItemList from '../itemList/ItemList'
 import './itemListContainer.css';
-import productsData from '../../data/productsData';
 import { useState, useEffect } from 'react';
 import * as React from 'react';
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 import { useParams } from 'react-router-dom';
+import ItemList from '../itemList/ItemList'
+import { collection, getDocs, getFirestore } from 'firebase/firestore';
+
 
 
 const ItemListContainer = () => {
@@ -15,19 +16,25 @@ const ItemListContainer = () => {
   const {id} = useParams()
 
   useEffect(() => { 
-    if(id){
-      new Promise((resolve, reject) => {
-        resolve(productsData.filter((product) => product.category === id))        
-      })
-      .then((res) => setData(res))    
 
-    }else{
-      new Promise((resolve, reject) => {
-        resolve(productsData)        
-      })
-      .then((res) => setData(res))
-      .then(() => setLoading(false)) 
+    const dataBase = getFirestore();
+    const products = collection(dataBase, 'products')
 
+    if(id){      
+      
+      getDocs(products).then((res) => {         
+        const aux = res.docs.map(item => ({...item.data(), id: item.id}));
+        console.log(aux)
+        setData(aux.filter((product) => product.category === id))
+      })
+    }else{    
+
+      getDocs(products).then((res) => {         
+        const aux = res.docs.map(item => ({...item.data(), id: item.id}));
+        console.log(aux)
+        setLoading(false)
+        setData(aux)
+      })
     }    
     
   }, [id])

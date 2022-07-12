@@ -15,15 +15,12 @@ const CartProvider = ({ children }) => {
 
     const addItem = (product, counter) => { 
 
-      counter = (typeof counter !== 'undefined') ?  counter : 1 
-      
+      counter = (typeof counter !== 'undefined') ?  counter : 1      
       
 
       const inCart = cartItems.find(item => {
         return item.id === product.id
-      })  
-      
-      
+      })       
 
       if(inCart){
         setCartItems(
@@ -33,19 +30,12 @@ const CartProvider = ({ children }) => {
               return { ...inCart, amount:inCart.amount + counter }
               
             }else return item
-          }) 
-
-          
+          })           
           
         )
       }else{
         setCartItems([...cartItems, {...product, amount: 1, counter:1}])        
       }
-      
-
-      
-      
-      
       
     }    
 

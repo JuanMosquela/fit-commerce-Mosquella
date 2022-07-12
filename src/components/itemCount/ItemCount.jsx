@@ -17,8 +17,7 @@ const Itemcount = ({ product }) => {
     
     const handleClickPlus = (product, counter) => {
         if(product.amount >= product.stock) return
-        setCount(count + counter)          
-
+        setCount(count + counter)
         addItem(product, counter)        
         
     }
@@ -29,9 +28,7 @@ const Itemcount = ({ product }) => {
 
         addItem(product, counter)        
         
-    }
-
-     
+    }    
 
   
   return (

@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
-import productsData from "../../data/productsData";
 import Carrusel from "../carrusel/Carrusel";
-
-
+import { doc,collection,getDocs, getDoc, getFirestore } from 'firebase/firestore';
 import ItemDetail from "../itemDetail/ItemDetail";
+
 
 
 const ItemDetailContainer = () => {
@@ -13,31 +12,35 @@ const ItemDetailContainer = () => {
 
   const [product, setProduct] = useState([]);  
   
-  const {id} = useParams(); 
-
-   
+  const {id} = useParams();   
 
   useEffect(() => {
-    
-      new Promise((resolve, reject) => {      
-      
-        resolve(productsData)        
-      })
-      .then((res) => {
-        setData(res)
-        setProduct(res.find(product => product.id === Number(id)))})  
+    const dataBase = getFirestore();
+    const products = collection(dataBase, 'products')
 
+    getDocs(products).then((res) => {        
+      const aux = res.docs.map(item => ({...item.data(), id: item.id}));   
+       
+      setData(aux)
+      setProduct(aux.find(p => p.id === id))
+      
+    })
     
-    
+    // const product = doc(dataBase, 'products', id )
+    // getDoc(product).then((res) => setProduct({...res.data(), id: res.id}))
+
+  },[id])
+
+
    
-    
-  }, [id])
+   
 
   
 
 
   return (
     <div className="item-detail-container">
+      
       <ItemDetail product={product}  />
       <Carrusel data={data} />
           
