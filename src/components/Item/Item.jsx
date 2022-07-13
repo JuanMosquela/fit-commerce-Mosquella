@@ -4,13 +4,13 @@ import Typography from '@mui/material/Typography';
 import { CardMedia } from '@mui/material'; 
 import './item.css';
 import {Link} from 'react-router-dom';
-import { Grid } from '@mui/material'
+
 
 const Item = ({ product}) => {    
 
   return (
-    <div>      
-      <Grid key={product.id} item md={3} sm={4} xs={12} >        
+    <div className='carrusell-slide'>      
+             
           <Link to={`/item/${product.id}`}>
             <Card className='card-item' sx={{ 
                 maxHeight:'320px', maxWidth:'220px', transition:'.2s ease', borderRadius:'7px' 
@@ -44,7 +44,7 @@ const Item = ({ product}) => {
                     
             </Card>              
           </Link>
-      </Grid>
+      
       
       
 

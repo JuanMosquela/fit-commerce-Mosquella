@@ -1,16 +1,17 @@
 import Background from '../background/Background';
-import './itemListContainer.css';
+import './home.css';
 import { useState, useEffect } from 'react';
 import * as React from 'react';
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 import { useParams } from 'react-router-dom';
-import ItemList from '../itemList/ItemList'
+
 import { collection, getDocs, getFirestore } from 'firebase/firestore';
+import SimpleSlider from '../simpleSlider/SimpleSlider';
 
 
 
-const ItemListContainer = () => {
+const Home = () => {
   const [data, setData] = useState([])
   const [loading, setLoading] = useState(true) 
   const {id} = useParams()
@@ -49,10 +50,10 @@ const ItemListContainer = () => {
       <Box sx={{ textAlign:'center', marginTop:'2rem' }}>
         <CircularProgress />
       </Box> :      
-      <ItemList data={data} />
+      <SimpleSlider data={data} />
       }
 
     </div>
   )
 }
-export default ItemListContainer
+export default Home

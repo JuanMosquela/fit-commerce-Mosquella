@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
-import Carrusel from "../carrusel/Carrusel";
-import { doc,collection,getDocs, getDoc, getFirestore } from 'firebase/firestore';
+import { collection,getDocs, getFirestore } from 'firebase/firestore';
 import ItemDetail from "../itemDetail/ItemDetail";
+import SimpleSlider from "../simpleSlider/SimpleSlider";
 
 
 
@@ -22,17 +22,11 @@ const ItemDetailContainer = () => {
       const aux = res.docs.map(item => ({...item.data(), id: item.id}));   
        
       setData(aux)
-      setProduct(aux.find(p => p.id === id))
-      
-    })
+      setProduct(aux.find(p => p.id === id))      
+    })   
     
-    // const product = doc(dataBase, 'products', id )
-    // getDoc(product).then((res) => setProduct({...res.data(), id: res.id}))
 
-  },[id])
-
-
-   
+  },[id])  
    
 
   
@@ -41,8 +35,10 @@ const ItemDetailContainer = () => {
   return (
     <div className="item-detail-container">
       
-      <ItemDetail product={product}  />
-      <Carrusel data={data} />
+      <ItemDetail product={product} />
+      <SimpleSlider data={data} />
+      
+      
           
     </div>
     

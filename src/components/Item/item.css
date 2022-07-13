@@ -1,12 +1,18 @@
+.carrusell-slide{
+    
+    display: flex;
+    justify-content: center;
+
+}
+
 .card-item{
     width: 220px;
    
 }
 
-.card-item:hover{
+.card-item:hover{    
     
-    
-    transform: scale(1.05);
+    transform: scale(1.04);
     cursor: pointer;
 }
 
