@@ -14,9 +14,9 @@
     position: fixed;
     top: 60px;
     right: 0;
-    width: 50%;
+    width: 600px;
     height: 90vh;
-    background-color: #FFF;
+    background-color: rgb(250, 250, 250);
     overflow-y: scroll;
    
     
@@ -26,7 +26,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid #333;
+    
 }
 
 .cart-section span{
@@ -41,12 +41,13 @@
 }
 
 .cart-list-container{    
-    box-shadow: 1px 7px 15px rgba(0, 0, 0, .1);     
-    background-color: #FFF;    
+     
+    background-color: rgb(230, 224, 224);    
     display: flex;    
-    flex-direction: column;  
+    flex-direction: column;
+    gap: 1rem;  
     height: 100%;  
-    padding-top: 3rem;
+    padding: 2rem 2rem 0;
    
     
 }
@@ -63,6 +64,7 @@
     display: flex;
     flex-direction: column;
     padding-top: 10rem;   
+    
     align-items: center;    
 }
 
@@ -100,6 +102,9 @@
 
 .cart-product-container{
     padding: 0 2rem;
+    background-color: #FFF;
+    border-radius: 7px;
+    
     
 }
 
@@ -115,21 +120,34 @@
 
 .product-info h4{
     font-size: 1.8rem;
+    padding-bottom: 15px;
 }
 
 .product-info h5{
-    font-size: 1.2rem;
+    padding-top: 15px ;
+    font-size: 1.4rem;
 }
 
 .btn-container{
     display: flex;
+    flex-direction: column;
     align-items: center;
 }
 
 .btn-container .remove-btn{
-    color: red;
-    font-size: 3rem;
+    background-color: rgb(243, 93, 93);
+    color: #FFF;
+    padding: 5px 15px;
+    font-size: 1.8rem;
+    border: none;
+    outline: none;
+    border-radius: 7px;
+    cursor: pointer;
 } 
+
+.btn-container .remove-btn:hover{
+    transform: scale(1.1);
+}
 
 .stock{
     color: red;

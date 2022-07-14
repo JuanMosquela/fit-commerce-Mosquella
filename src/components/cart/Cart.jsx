@@ -47,7 +47,7 @@ const Cart = () => {
                                 </div>
                                 <div className="btn-container">
                                     <ItemCount product={product} />
-                                    <AiFillDelete className="remove-btn" onClick={() => removeItem(product)} />
+                                    <button className="remove-btn" onClick={() => removeItem(product)}>Delete</button>
                                 </div>  
                                 {product.amount >= product.stock && <p className="stock">{`stock surpass - max ${product.stock}`}</p>}                    
                             

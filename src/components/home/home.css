@@ -16,6 +16,6 @@
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     background-color: #e7e3e3;    
     padding: 3rem 10%;
-    gap: 1rem;
+    gap: 3rem 0;
 }
 
