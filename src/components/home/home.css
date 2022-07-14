@@ -1,5 +1,5 @@
 .item-container{
-    background-color: #f7f7f7;
+    background-color: #f5f3f3;
     
     
 }
@@ -14,7 +14,7 @@
 .grid-container{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    background-color: #e7e3e3;    
+    background-color: #f5f1f1;    
     padding: 3rem 10%;
     gap: 3rem 0;
 }

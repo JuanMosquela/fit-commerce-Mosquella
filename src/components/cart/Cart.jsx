@@ -11,7 +11,11 @@ import './cart.css'
 
 const Cart = () => {       
 
-    const { cartItems, toggleCart, removeItem, totalPrice } = useContext(CartContext)    
+    const { cartItems, toggleCart, removeItem, totalPrice } = useContext(CartContext) 
+
+    const handleClick = () => {
+        console.log(cartItems)
+    }   
     
 
   return (
@@ -33,7 +37,11 @@ const Cart = () => {
                                 </button>
                             </Link>
                         </div>
-                    ) : cartItems.map(product => (
+                    ) : 
+                    <div>
+
+                        <button className="btn-purchase" onClick={() => handleClick(cartItems)}>Buy</button>
+                        {cartItems.map(product => (
                         
                         <div key={product.id} className="cart-product-container">
                             <div key={product.id} className="cart-product-list">
@@ -53,7 +61,11 @@ const Cart = () => {
                             
                             </div>
                         </div>
+                        
                     ))}
+                    </div>
+                
+                    }
         </div>
     </section>
     </div>
