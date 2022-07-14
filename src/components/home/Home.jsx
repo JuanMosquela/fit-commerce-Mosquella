@@ -7,7 +7,8 @@ import Box from '@mui/material/Box';
 import { useParams } from 'react-router-dom';
 
 import { collection, getDocs, getFirestore } from 'firebase/firestore';
-import SimpleSlider from '../simpleSlider/SimpleSlider';
+
+import EmblaCarousel from '../simpleSlider/EmblaCarousel';
 
 
 
@@ -50,7 +51,7 @@ const Home = () => {
       <Box sx={{ textAlign:'center', marginTop:'2rem' }}>
         <CircularProgress />
       </Box> :      
-      <SimpleSlider data={data} />
+      <EmblaCarousel data={data} />
       }
 
     </div>

@@ -44,7 +44,7 @@ const ItemDetail = ({ product }) => {
   return (
     <>
       <ToastContainer />
-      <Card className='container-product' sx={{ display: 'flex', alignItems:'center', justifyContent:'center', padding:'7rem 2%', gap:'3rem' }}>
+      <Card className='container-product' sx={{ display: 'flex', alignItems:'center', justifyContent:'center', padding:'3rem 2%', gap:'3rem' }}>
       
       <CardMedia className='img'
         component="img"
