@@ -2,10 +2,9 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
 import { collection,getDocs, getFirestore } from 'firebase/firestore';
 import ItemDetail from "../itemDetail/ItemDetail";
-import SimpleSlider from '../simpleSlider/EmblaCarousel';
 import { Box } from "@mui/system";
 import { CircularProgress } from "@mui/material";
-import EmblaCarousel from "../simpleSlider/EmblaCarousel";
+import SimpleSlider from '../simpleSlider/SimpleSlider'
 
 
 
@@ -43,7 +42,8 @@ const ItemDetailContainer = () => {
         </Box> :
         <>
           <ItemDetail product={product} />
-          <EmblaCarousel data={data}/> 
+          <SimpleSlider data={data} />
+         
         </>
         
       }     

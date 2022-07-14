@@ -8,7 +8,8 @@ import { useParams } from 'react-router-dom';
 
 import { collection, getDocs, getFirestore } from 'firebase/firestore';
 
-import EmblaCarousel from '../simpleSlider/EmblaCarousel';
+
+import Item from '../Item/Item';
 
 
 
@@ -33,7 +34,7 @@ const Home = () => {
 
       getDocs(products).then((res) => {         
         const aux = res.docs.map(item => ({...item.data(), id: item.id}));
-        console.log(aux)
+        
         setLoading(false)
         setData(aux)
       })
@@ -51,7 +52,11 @@ const Home = () => {
       <Box sx={{ textAlign:'center', marginTop:'2rem' }}>
         <CircularProgress />
       </Box> :      
-      <EmblaCarousel data={data} />
+       <div className="grid-container">
+        {data.map((product) => (
+          <Item key={product.id} product={product}  />
+        ))}
+       </div>
       }
 
     </div>

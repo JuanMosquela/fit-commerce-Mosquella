@@ -48,7 +48,7 @@ const ItemDetail = ({ product }) => {
       
       <CardMedia className='img'
         component="img"
-        sx={{ width: 300, height: 500, objectFit:'contain' }}
+        sx={{ width: 300, height: 400, objectFit:'contain', marginTop:'2rem' }}
         image={pictureURL}
         alt="Live from space album cover"
         

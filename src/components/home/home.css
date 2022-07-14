@@ -10,3 +10,12 @@
     object-fit: cover;
 }
 
+
+.grid-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    background-color: #e7e3e3;    
+    padding: 3rem 10%;
+    gap: 2rem;
+}
+

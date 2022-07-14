@@ -7,23 +7,19 @@ import {Link} from 'react-router-dom';
 
 
 const Item = ({ product}) => {    
-  console.log(product)
+ 
 
   return (
-    <div className='carrusell-slide'>      
+    <div>      
              
           <Link to={`/item/${product.id}`}>
             <Card className='card-item' sx={{ 
                 maxHeight:'320px', maxWidth:'220px', transition:'.2s ease', borderRadius:'7px' 
               }}>
               <CardContent>                 
-                  <CardMedia className='item-img' sx={{                    
+                  <CardMedia className='item-img'                    
                                           
-                      width:'100%',
-                      height:'220px',
-                      objectFit:'contain',
-                      marginBottom:'1.2rem'
-                      }}
+                      
                       
                       component="img"
                       image={product.pictureURL}
