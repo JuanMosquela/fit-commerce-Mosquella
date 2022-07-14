@@ -14,7 +14,7 @@ const Item = ({ product}) => {
              
           <Link to={`/item/${product.id}`}>
             <Card className='card-item' sx={{ 
-                maxHeight:'320px', maxWidth:'220px', transition:'.2s ease', borderRadius:'7px' 
+                maxHeight:'320px', maxWidth:'220px', transition:'.2s ease', borderRadius:'7px', 
               }}>
               <CardContent>                 
                   <CardMedia className='item-img'                    
