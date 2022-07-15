@@ -1,18 +1,18 @@
-# Dillinger
-## _The Last Markdown Editor, Ever_
+# Proyecto Fit-Commerce
+## Camada de Gaston Morales- 37750
 
-[![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
 
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
+Proyecto diriguido a lo fitness, venta de protenias.
 
-Dillinger is a cloud-enabled, mobile-ready, offline-storage compatible,
-AngularJS-powered HTML5 Markdown editor.
+## Tecnologias que utilizamos
 
-- Type some Markdown on the left
-- See HTML in the right
-- ✨Magic ✨
+- React JS
+- CSS
+- Material UI ❤
 
-## Features
+
+
+## Como ldeployar el proyecto
 
 - Import a HTML file and watch it magically convert to Markdown
 - Drag and drop images (requires your Dropbox account be linked)
