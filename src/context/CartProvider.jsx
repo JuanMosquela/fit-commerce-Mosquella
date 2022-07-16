@@ -14,17 +14,20 @@ const CartProvider = ({ children }) => {
     
 
     const addItem = (product, counter) => { 
-
-      counter = (typeof counter !== 'undefined') ?  counter : 1      
+      
+      
       
 
       const inCart = cartItems.find(item => {
         return item.id === product.id
-      })       
+      })  
+
+          
 
       if(inCart){
         setCartItems(
           cartItems.map(item => {
+            console.log(item.amount)
             
             if(item.id === product.id){              
               return { ...inCart, amount:inCart.amount + counter }
@@ -34,8 +37,10 @@ const CartProvider = ({ children }) => {
           
         )
       }else{
-        setCartItems([...cartItems, {...product, amount: 1, counter:1}])        
+        setCartItems([...cartItems, {...product, amount: counter, counter:1}])        
       }
+
+      console.log(cartItems)
       
     }    
 
@@ -51,6 +56,10 @@ const CartProvider = ({ children }) => {
     setShowCart(state)
   }
 
+  const clearCart = () => {
+    setCartItems([])
+  }
+
   useEffect(() => {    
     setQuantity(cartItems.reduce((previous,current) => previous + current.amount, 0)     
     ); 
@@ -60,7 +69,7 @@ const CartProvider = ({ children }) => {
 
 
   return (
-    <CartContext.Provider value={{ addItem,toggleCart, showCart, cartItems, totalPrice, removeItem, quantity}}>
+    <CartContext.Provider value={{ addItem,toggleCart, showCart, cartItems, totalPrice, removeItem, quantity, clearCart}}>
         {children}
     </CartContext.Provider>
   )

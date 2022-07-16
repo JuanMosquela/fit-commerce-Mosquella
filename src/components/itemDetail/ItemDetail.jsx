@@ -11,23 +11,22 @@ import { AiFillStar } from 'react-icons/ai';
 import { Button } from '@mui/material';
 import { CartContext } from '../../context/CartProvider';
 import { useContext } from 'react';
+import Itemcount from '../itemCount/ItemCount';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 
 
 const ItemDetail = ({ product }) => {
-
  
 
   const { title, price, pictureURL, description, category } = product
 
-  const { addItem } = useContext(CartContext)   
+  const { addItem } = useContext(CartContext) 
+  
+  const [count, setCount] = useState(product.amount)
 
-  const onAdd = (product) => {
-    if(product.amount >= product.stock) return
-    product.amount++;
-    addItem(product)
-
-  } 
+  
 
   const notify = (product) => {
     toast.success(`You bought ${product.amount} ${product.title}`, {
@@ -39,12 +38,37 @@ const ItemDetail = ({ product }) => {
       progress: undefined,
       });
   };
+
+  const handleClickPlus = (product, counter) => {
+    if(product.amount >= product.stock) return
+    setCount(count + counter)
+          
+    
+  }
+
+  const handleClickMinus = (product, counter) => {
+    if(count <= 0) return
+      
+      setCount(count + counter)  
+         
+
+            
+      
+  }  
+
+const onAdd = (product) => {
+  
+  if(product.amount >= product.stock) return   
+  
+  addItem(product, count)
+
+} 
   
 
   return (
     <>
       <ToastContainer />
-      <Card className='container-product' sx={{ display: 'flex', alignItems:'center', justifyContent:'center', padding:'3rem 2%', gap:'3rem' }}>
+      <Card className='container-product' sx={{ display: 'flex', alignItems:'center', justifyContent:'center', padding:'3rem 2%', gap:'3rem', height:'100vh' }}>
       
       <CardMedia className='img'
         component="img"
@@ -69,6 +93,7 @@ const ItemDetail = ({ product }) => {
             <AiFillStar />
             <AiFillStar />
           </Box>
+          <Itemcount handleClickMinus={handleClickMinus} handleClickPlus={handleClickPlus} product={product} count={count}/>  
           
           
           <Typography variant="p" color="text.secondary" component="div" sx={{ fontSize:'1.4rem' }}>
@@ -77,7 +102,8 @@ const ItemDetail = ({ product }) => {
           <Typography variant="subtitle1" color="text.secondary" component="div" sx={{ fontSize:'2.4rem', color:'#faba42' }}>
             $ {price}
           </Typography>
-        </CardContent>          
+        </CardContent>  
+              
         
         
         <Box sx={{ display:'flex', gap:'2rem' }}>
@@ -97,6 +123,7 @@ const ItemDetail = ({ product }) => {
               >
               add to cart
             </Button>   
+            {/* <Link to='/checkout'>
             <Button
                       
                       variant='contained' 
@@ -115,6 +142,7 @@ const ItemDetail = ({ product }) => {
                   >
                   Buy
             </Button>   
+            </Link> */}
         </Box>        
         
       </Box>

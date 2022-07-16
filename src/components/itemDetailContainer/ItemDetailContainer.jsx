@@ -35,7 +35,7 @@ const ItemDetailContainer = () => {
 
 
   return (
-    <div className="item-detail-container" style={{height:'100vh'}}>
+    <div className="item-detail-container" >
       {loading ? 
         <Box sx={{ textAlign:'center', marginTop:'2rem' }}>
           <CircularProgress />

@@ -3,51 +3,30 @@ import {AiOutlineMinus} from 'react-icons/ai';
 import CardActions from '@mui/material/CardActions';
 import Button from '@mui/material/Button';
 import './itemCount.css'
-import { useContext, useState } from 'react';
-import { CartContext } from '../../context/CartProvider';
 
 
 
 
-const Itemcount = ({ product }) => { 
 
-    const [count, setCount] = useState(product.amount)
-
-    const { addItem } = useContext(CartContext)
-    
-    const handleClickPlus = (product, counter) => {
-        if(product.amount >= product.stock) return
-        setCount(count + counter)
-        addItem(product, counter)        
-        
-    }
-
-    const handleClickMinus = (product, counter) => {
-        if(product.amount === 0) return
-        setCount(count + counter)          
-
-        addItem(product, counter)        
-        
-    }    
+const Itemcount = ({ handleClickMinus, handleClickPlus, count, product }) => {    
 
   
   return (
     
     <CardActions sx={{
-        display:'flex',                
-        justifyContent:'center',
+        display:'flex',       
         alignItems:'center', 
         gap:'1rem',
-        width:'100%'
+        
                                             
     }}>
-        <Button variant='outlined'  sx={{
-                width:'100%',
+        <Button variant='outlined'  sx={{               
                 fontSize:'1.4rem',                                                                            
                 display:'flex',
                 justifyContent:'space-around',
                 alignItems:'center',
-                color:'#333',              
+                color:'#333', 
+                width:'200px'             
                 
             }}>                
             <AiOutlineMinus 

@@ -7,6 +7,7 @@ import Footer from './components/footer/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import CartProvider from './context/CartProvider';
 import Cart from './components/cart/Cart';
+import Checkout from './components/Checkout/Checkout';
 
 
 
@@ -34,6 +35,7 @@ function App() {
             <Route path='/category/:id' element={<Home />} />
             <Route path='/item/:id' element={<ItemDetailContainer />} />
             <Route path='/cart' element={<Cart />} />
+            <Route path='/checkout' element={<Checkout />} />
           </Routes>
           <Footer />
         </CartProvider>        
