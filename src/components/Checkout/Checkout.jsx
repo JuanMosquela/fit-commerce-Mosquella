@@ -15,7 +15,8 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { CartContext } from '../../context/CartProvider';
 import { useContext } from 'react';
 import { useState } from 'react';
-
+import { collection, addDoc, getFirestore } from 'firebase/firestore';
+import Swal from 'sweetalert2';
 
 
 const theme = createTheme();
@@ -25,10 +26,11 @@ export default function Checkout() {
     const [input, setInput] = useState({
         firstName:'',
         tel:'',
+        email:''
         
     })
 
-    const {cartItems} = useContext(CartContext)
+    const {cartItems, totalPrice, clear} = useContext(CartContext)    
 
     const handleChange = (e) => {
         setInput({...input, [e.target.name]: [e.target.value]})
@@ -40,12 +42,27 @@ export default function Checkout() {
     if(input.firstName === "" || input.tel=== ""){
         return console.log('completa todo boludo')
     }
-    console.log(input)
-    console.log(cartItems)
+
+    const pedido = {
+      buyer: input,
+      pedido: cartItems,
+      price: totalPrice,
+      date: new Date().toDateString()
+    }
+
+    const dataBase = getFirestore()  
     
+    const collectionRef = collection(dataBase, 'pedidos')
+    addDoc(collectionRef, pedido).then(({ id }) => Swal.fire(
+      'Gracias por tu compra!', 
+      `Nº de orden ${id} <br><br> Por un total de $ ${pedido.price} <br><br> Fecha de compra : ${pedido.date}`, 
+      'success')).then(() => clear())
+
+      
     
-    
-  };
+    }
+
+      
 
   return (
     <ThemeProvider theme={theme}>

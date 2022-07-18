@@ -6,22 +6,29 @@ const CartProvider = ({ children }) => {
 
     const [showCart, setShowCart] = useState(false)    
 
-    const [cartItems, setCartItems] = useState([])   
+    const [cartItems, setCartItems] = useState(() => {
+      try{
+        const productsStorage = localStorage.getItem('cart')
+        return productsStorage ? JSON.parse(productsStorage) : []
+
+      }catch{
+        return []
+      }
+    })   
 
     const [quantity, setQuantity] = useState(0)     
 
-    const [totalPrice, setTotalPrice] = useState(0)     
+    const [totalPrice, setTotalPrice] = useState(0) 
+    
+    
     
 
-    const addItem = (product, counter) => { 
-      
-      
+    const addItem = (product, counter) => {     
       
 
       const inCart = cartItems.find(item => {
         return item.id === product.id
       })  
-
           
 
       if(inCart){
@@ -60,16 +67,26 @@ const CartProvider = ({ children }) => {
     setCartItems([])
   }
 
-  useEffect(() => {    
+  const clear = () => {
+    setCartItems([]);
+    setQuantity(0)
+
+  };
+
+  useEffect(() => { 
+    localStorage.setItem('cart', JSON.stringify(cartItems)) 
+      
     setQuantity(cartItems.reduce((previous,current) => previous + current.amount, 0)     
     ); 
     const total = cartItems.reduce((previous,current) => previous + current.amount * current.price, 0)
     setTotalPrice(total)  
-  }, [cartItems])     
+  }, [cartItems]) 
+
+      
 
 
   return (
-    <CartContext.Provider value={{ addItem,toggleCart, showCart, cartItems, totalPrice, removeItem, quantity, clearCart}}>
+    <CartContext.Provider value={{ addItem,toggleCart, showCart, cartItems, totalPrice, removeItem, quantity, clearCart, clear}}>
         {children}
     </CartContext.Provider>
   )

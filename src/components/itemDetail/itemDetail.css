@@ -41,8 +41,6 @@
     .container-product{
         flex-direction: column;
         gap: 0;
-
-
     }
 
     .container-product .img{
