@@ -4,7 +4,8 @@ import { collection,getDocs, getFirestore } from 'firebase/firestore';
 import ItemDetail from "../itemDetail/ItemDetail";
 import { Box } from "@mui/system";
 import { CircularProgress } from "@mui/material";
-import SimpleSlider from '../simpleSlider/SimpleSlider'
+import SimpleSlider from '../simpleSlider/SimpleSlider';
+
 
 
 
@@ -35,7 +36,7 @@ const ItemDetailContainer = () => {
 
 
   return (
-    <div className="item-detail-container" style={{minHeight:'100vh'}} >
+    <div className="item-detail-container" style={{ minHeight:'100vh' }} >
       {loading ? 
         <Box sx={{ textAlign:'center', marginTop:'2rem' }}>
           <CircularProgress />

@@ -1,0 +1,10 @@
+.error{
+    color: #fc8181;
+    
+
+}
+input .input-error {
+    border: 2px solid #fc8181;
+    
+
+}

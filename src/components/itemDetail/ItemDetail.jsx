@@ -68,7 +68,7 @@ const onAdd = (product) => {
   return (
     <>
       <ToastContainer />
-      <Card className='container-product' sx={{ display: 'flex', alignItems:'center', justifyContent:'center', padding:'3rem 2%', gap:'3rem', height:'100vh' }}>
+      <Card className='container-product' sx={{ display: 'flex', alignItems:'center', justifyContent:'center', padding:'3rem 2%', gap:'3rem', minHeight:'100vh' }}>
       
       <CardMedia className='img'
         component="img"

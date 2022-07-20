@@ -17,63 +17,57 @@ import { useContext } from 'react';
 import { useState } from 'react';
 import { collection, addDoc, getFirestore } from 'firebase/firestore';
 import Swal from 'sweetalert2';
+import { useFormik } from 'formik';
+import { basicSchemas } from '../../schemas/basicSchemas';
+import './checkout.css'
+
 
 
 const theme = createTheme();
 
 export default function Checkout() {
 
-    const [input, setInput] = useState({
-        firstName:'',
-        tel:'',
-        email:''
-        
-    })
-
-    const {cartItems, totalPrice, clear} = useContext(CartContext)    
-
-    const handleChange = (e) => {
-        setInput({...input, [e.target.name]: [e.target.value]})
-        
-    }
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    if(input.firstName === "" || input.tel=== ""){
-        return console.log('completa todo boludo')
-    }
-
+  const {cartItems, totalPrice, clear} = useContext(CartContext) 
+  
+  const onSubmit = ()=> {
     const pedido = {
-      buyer: input,
-      pedido: cartItems,
-      price: totalPrice,
-      date: new Date().toDateString()
+        buyer: values,
+        pedido: cartItems,
+        price: totalPrice,
+        date: new Date().toDateString()
     }
 
     const dataBase = getFirestore()  
     
     const collectionRef = collection(dataBase, 'pedidos')
     addDoc(collectionRef, pedido).then(({ id }) => Swal.fire(
-      'Gracias por tu compra!', 
-      `Nº de orden ${id} <br><br> Por un total de $ ${pedido.price} <br><br> Fecha de compra : ${pedido.date}`, 
-      'success')).then(() => clear())
+    'Gracias por tu compra!', 
+    `Nº de orden ${id} <br><br> Por un total de $ ${pedido.price} <br><br> Fecha de compra : ${pedido.date}`, 
+    'success')).then(() => clear())   
+  }
+  
 
-      
-    
-    }
+  const { values, handleChange, handleSubmit, handleBlur, errors, touched } = useFormik({
+    initialValues: { 
+      firstName: '',
+      lastName:'',
+      email: ''
+    },
+    validationSchema: basicSchemas,
+    onSubmit,    
+  }) 
 
-      
+   
 
   return (
     <ThemeProvider theme={theme}>
-      <Container component="main" sx={{ minHeight:'100vh', display:'flex', justifyContent:'center', alignItems:'center', maxWidth:'460px'}}>
+      <Container component="main" sx={{ minHeight:'100vh', display:'flex', justifyContent:'center', alignItems:'center'}}>
         <CssBaseline />
         <Box
           sx={{            
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',           
-            
           }}
         >
           <Avatar sx={{ m: 1, bgcolor: '#000' }}>
@@ -82,32 +76,55 @@ export default function Checkout() {
           <Typography component="h1" variant="h5">
             Checkout
           </Typography>
-          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-            <TextField onChange={(e) => handleChange(e)}
+          <Box  component="form" onSubmit={handleSubmit} noValidate sx={{ mt:'1rem', maxwidth:'500px' }} >
+            <TextField 
+              onChange={handleChange}
+              onBlur={handleBlur}
               margin="normal"
               required
               fullWidth
-              id="name"
+              id="firstName"
               label="First Name"
               name="firstName"
               autoComplete="name"
-              value={input.firstName}
-              autoFocus
+              value={values.firstName}
+              className={ errors.firstName && touched.firstName ? 'input-error' : '' }          
+              
             />
-            <TextField onChange={(e) => handleChange(e)}
+            {errors.firstName && touched.firstName && <p className='error'>{errors.firstName}</p>}
+            <TextField 
+              onChange={handleChange}
+              onBlur={handleBlur}
               margin="normal"
               required
               fullWidth
-              name="tel"
-              label="Tel"
-              type="number"
-              id="tel"
-              value={input.tel}
-              autoComplete="current-cellphone"
+              id="lastName"
+              label="Last Name"
+              name="lastName"
+              autoComplete="lastName"
+              value={values.lastName} 
+              className={ errors.lastName && touched.lastName ? 'input-error' : '' }             
+              
             />
+            {errors.lastName && touched.lastName && <p className='error'>{errors.lastName}</p>}
+            <TextField 
+              onChange={handleChange}
+              onBlur={handleBlur}
+              margin="normal"
+              required
+              fullWidth
+              name="email"
+              label="Email"
+              type="email"
+              id="email"
+              value={values.email}
+              className={ errors.email && touched.email ? 'input-error' : '' }
+              autoComplete="email"
+            />
+            {errors.email && touched.email && <p className='error'>{errors.email}</p>}
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
-              label="I'm not a robot"
+              label="Im not a robot"
             />
             <Button
               type="submit"

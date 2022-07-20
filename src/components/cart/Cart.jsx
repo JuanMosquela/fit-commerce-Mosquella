@@ -3,10 +3,10 @@ import { AiOutlineShopping } from "react-icons/ai";
 import { AiFillDelete } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { CartContext } from "../../context/CartProvider";
-import ItemCount from "../itemCount/ItemCount";
+
 import { MdOutlineKeyboardArrowLeft } from 'react-icons/md'
 import './cart.css'
-import Checkout from "../Checkout/Checkout";
+
 
 
 
@@ -14,9 +14,7 @@ const Cart = () => {
 
     const { cartItems, toggleCart, removeItem, totalPrice, clearCart } = useContext(CartContext) 
 
-    const handleClick = () => {
-        console.log(cartItems)
-    }  
+   
     
     
     
@@ -44,8 +42,8 @@ const Cart = () => {
                     <div>
 
                         <div className="btn-container-top">
-                            <Link to='/checkout'>
-                                <button className="btn-purchase" onClick={() => handleClick(cartItems)}>Buy</button>
+                            <Link to='/cartList'>
+                                <button className="btn-purchase" onClick={() => toggleCart(false)}>View Cart</button>
                             </Link>
                             <button className="btn-purchase" onClick={() => clearCart(cartItems)}>Clear Cart</button>
                         </div>
@@ -63,7 +61,7 @@ const Cart = () => {
                                         
                                     </div>
                                     <div className="btn-container">
-                                        {/* <ItemCount count={product.amount} /> */}
+                                       
                                         <button className="remove-btn" onClick={() => removeItem(product)}>Delete</button>
                                     </div>  
                                     {product.amount >= product.stock && <p className="stock">{`stock surpass - max ${product.stock}`}</p>}                    

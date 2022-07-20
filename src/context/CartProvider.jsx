@@ -45,9 +45,7 @@ const CartProvider = ({ children }) => {
         )
       }else{
         setCartItems([...cartItems, {...product, amount: counter, counter:1}])        
-      }
-
-      console.log(cartItems)
+      }      
       
     }    
 

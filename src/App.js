@@ -8,6 +8,7 @@ import ScrollToTop from './components/ScrollToTop';
 import CartProvider from './context/CartProvider';
 import Cart from './components/cart/Cart';
 import Checkout from './components/Checkout/Checkout';
+import CartList from './pages/CartList';
 
 
 
@@ -36,6 +37,7 @@ function App() {
             <Route path='/item/:id' element={<ItemDetailContainer />} />
             <Route path='/cart' element={<Cart />} />
             <Route path='/checkout' element={<Checkout />} />
+            <Route path='/cartList' element={<CartList />} />
           </Routes>
           <Footer />
         </CartProvider>        
