@@ -68,7 +68,7 @@ const onAdd = (product) => {
   return (
     <>
       <ToastContainer />
-      <Card className='container-product' sx={{ display: 'flex', alignItems:'center', justifyContent:'center', padding:'3rem 2%', gap:'3rem', minHeight:'100vh' }}>
+      <Card className='container-product' sx={{ display: 'flex', alignItems:'center', justifyContent:'center', gap:'3rem' }}>
       
       <CardMedia className='img'
         component="img"
@@ -78,7 +78,7 @@ const onAdd = (product) => {
         
       />     
       
-      <Box sx={{ display: 'flex', flexDirection: 'column', maxWidth:'500px' }}>
+      <Box sx={{ display: 'flex', flexDirection: 'column', maxWidth:'500px', padding:'0' }}>
         <CardContent sx={{ flex: '1 0 auto' }}>
           <Typography component="span" variant="subtitle1" sx={{ fontSize:'1.6rem', marginBottom:'.5rem' }}>
             {'Proteina ' + category}
@@ -86,33 +86,36 @@ const onAdd = (product) => {
           <Typography component="div" variant="h4" sx={{ fontSize:'3.2rem', marginBottom:'.5rem', color:'#333', fontWeight:'600' }}>
             {title}
           </Typography>
-          <Box sx={{fontSize:'2.6rem', color:'#faba42'}}>
+          <Box sx={{fontSize:'2.6rem', color:'#faba42', marginBottom:'.5rem'}}>
             <AiFillStar />
             <AiFillStar />
             <AiFillStar />
             <AiFillStar />
             <AiFillStar />
           </Box>
-          <Itemcount handleClickMinus={handleClickMinus} handleClickPlus={handleClickPlus} product={product} count={count}/>  
           
           
-          <Typography variant="p" color="text.secondary" component="div" sx={{ fontSize:'1.4rem' }}>
-            {description}
-          </Typography>
           <Typography variant="subtitle1" color="text.secondary" component="div" sx={{ fontSize:'2.4rem', color:'#faba42' }}>
             $ {price}
           </Typography>
-        </CardContent>  
+          
+          <Typography variant="p" color="text.secondary" component="div" sx={{ fontSize:'1.4rem', textAlign:'justify',letterSpacing:'1px' }}>
+            {description}
+          </Typography>
+        </CardContent> 
+        <Itemcount handleClickMinus={handleClickMinus} handleClickPlus={handleClickPlus} product={product} count={count}/>   
               
         
         
-        <Box sx={{ display:'flex', gap:'2rem' }}>
+        <Box sx={{ display:'flex', gap:'2rem', margin:'1rem 1rem'}}>
           <Button                  
                   variant='contained' 
                   onClick={() => onAdd(product)} 
                                                           
                   sx={{ 
-                      width:'100%',
+                      
+                    
+                      
                       backgroundColor:'#333',
                       fontSize:'1.4rem',
                       '&:hover': {
@@ -123,26 +126,30 @@ const onAdd = (product) => {
               >
               add to cart
             </Button>   
-            {/* <Link to='/checkout'>
-            <Button
-                      
-                      variant='contained' 
-                      onClick={() => notify(product)}                      
-                                                            
-                      sx={{ 
-                          width:'100%',
-                          backgroundColor:'#333',
-                          fontSize:'1.4rem',
-                          '&:hover': {
-                              background: "#faba42",
-                          },
-                          marginLeft:'0px !important',
+            
+            <Link to='/cartList' sx={{ display:'block'  }}>
+              <Button
+                          
+                          variant='contained' 
+                          onClick={() => notify(product)}                      
+                                                                
+                          sx={{ 
+                              width:'100%',
+                            
+                              
+                              backgroundColor:'#333',
+                              fontSize:'1.4rem',
+                              '&:hover': {
+                                  background: "#faba42",
+                              },
+                              marginLeft:'0px !important',
 
-                  }}
-                  >
-                  Buy
-            </Button>   
-            </Link> */}
+                      }}
+                      >
+                      Cart View
+                </Button>   
+            </Link>
+            
         </Box>        
         
       </Box>

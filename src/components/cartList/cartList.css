@@ -53,9 +53,10 @@ tr td img{
 }
 
 .table-row th{
+    font-family: arial, sans-serif;
     text-align: end;
     padding: 1rem 3rem;
-    font-size: 2.4rem;   
+    font-size: 2.2rem;   
     
 }
 
@@ -63,6 +64,8 @@ tr td img{
     .cart-list-section{
         padding: 0;
     }
+
+    
 }
   
  

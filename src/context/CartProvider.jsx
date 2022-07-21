@@ -61,13 +61,13 @@ const CartProvider = ({ children }) => {
     setShowCart(state)
   }
 
-  const clearCart = () => {
-    setCartItems([])
-  }
+
 
   const clear = () => {
     setCartItems([]);
+    setTotalPrice(0)
     setQuantity(0)
+    localStorage.clear()
 
   };
 
@@ -84,7 +84,7 @@ const CartProvider = ({ children }) => {
 
 
   return (
-    <CartContext.Provider value={{ addItem,toggleCart, showCart, cartItems, totalPrice, removeItem, quantity, clearCart, clear}}>
+    <CartContext.Provider value={{ addItem,toggleCart, showCart, cartItems, totalPrice, removeItem, quantity, clear}}>
         {children}
     </CartContext.Provider>
   )

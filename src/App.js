@@ -8,19 +8,10 @@ import ScrollToTop from './components/ScrollToTop';
 import CartProvider from './context/CartProvider';
 import Cart from './components/cart/Cart';
 import Checkout from './components/Checkout/Checkout';
-import CartList from './pages/CartList';
-
-
-
-
-
-
+import CartList from './components/cartList/CartList';
+import SuccessPage from './components/success/SuccessPage';
 
 function App() {
-
-  
-
- 
 
  
 
@@ -36,8 +27,9 @@ function App() {
             <Route path='/category/:id' element={<Home />} />
             <Route path='/item/:id' element={<ItemDetailContainer />} />
             <Route path='/cart' element={<Cart />} />
-            <Route path='/checkout' element={<Checkout />} />
             <Route path='/cartList' element={<CartList />} />
+            <Route path='/checkout' element={<Checkout />} />
+            <Route path='/success' element={<SuccessPage />} />
           </Routes>
           <Footer />
         </CartProvider>        

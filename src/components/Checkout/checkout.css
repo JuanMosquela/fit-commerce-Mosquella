@@ -1,10 +1,11 @@
 .error{
     color: #fc8181;
+    font-size: 1.3rem;
+    font-weight: 600;
     
 
 }
-input .input-error {
-    border: 2px solid #fc8181;
-    
+input .input-error {    
+    border:  2px solid #fc8181 ;   
 
 }

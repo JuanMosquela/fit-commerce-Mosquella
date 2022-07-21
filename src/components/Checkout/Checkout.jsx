@@ -5,29 +5,25 @@ import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
+import { Link } from 'react-router-dom';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { CartContext } from '../../context/CartProvider';
-import { useContext } from 'react';
-import { useState } from 'react';
 import { collection, addDoc, getFirestore } from 'firebase/firestore';
 import Swal from 'sweetalert2';
 import { useFormik } from 'formik';
 import { basicSchemas } from '../../schemas/basicSchemas';
 import './checkout.css'
+import { CartContext } from '../../context/CartProvider';
+import { useContext } from 'react';
 
 
-
-const theme = createTheme();
 
 export default function Checkout() {
 
-  const {cartItems, totalPrice, clear} = useContext(CartContext) 
+  const {cartItems, totalPrice} = useContext(CartContext)
   
   const onSubmit = ()=> {
     const pedido = {
@@ -43,7 +39,7 @@ export default function Checkout() {
     addDoc(collectionRef, pedido).then(({ id }) => Swal.fire(
     'Gracias por tu compra!', 
     `Nº de orden ${id} <br><br> Por un total de $ ${pedido.price} <br><br> Fecha de compra : ${pedido.date}`, 
-    'success')).then(() => clear())   
+    'success'))   
   }
   
 
@@ -60,14 +56,18 @@ export default function Checkout() {
    
 
   return (
-    <ThemeProvider theme={theme}>
+    
       <Container component="main" sx={{ minHeight:'100vh', display:'flex', justifyContent:'center', alignItems:'center'}}>
         <CssBaseline />
         <Box
           sx={{            
             display: 'flex',
             flexDirection: 'column',
-            alignItems: 'center',           
+            alignItems: 'center', 
+            justifyContent:'center', 
+            maxWidth:'800px'
+            
+              
           }}
         >
           <Avatar sx={{ m: 1, bgcolor: '#000' }}>
@@ -76,7 +76,7 @@ export default function Checkout() {
           <Typography component="h1" variant="h5">
             Checkout
           </Typography>
-          <Box  component="form" onSubmit={handleSubmit} noValidate sx={{ mt:'1rem', maxwidth:'500px' }} >
+          <Box  component="form" onSubmit={handleSubmit} noValidate sx={{ mt:'1rem' }} >
             <TextField 
               onChange={handleChange}
               onBlur={handleBlur}
@@ -88,11 +88,19 @@ export default function Checkout() {
               name="firstName"
               autoComplete="name"
               value={values.firstName}
+              
+              inputProps={{style: {fontSize: 15, maxWidth:'800px'}}} 
+              InputLabelProps={{style: {fontSize: 15}}} 
+            
+              
+              
               className={ errors.firstName && touched.firstName ? 'input-error' : '' }          
               
             />
-            {errors.firstName && touched.firstName && <p className='error'>{errors.firstName}</p>}
+            {errors.firstName && touched.firstName && <span className='error'>{errors.firstName}</span>}
             <TextField 
+            inputProps={{style: {fontSize: 15, maxWidth:'800px'}}} 
+            InputLabelProps={{style: {fontSize: 15}}} 
               onChange={handleChange}
               onBlur={handleBlur}
               margin="normal"
@@ -106,8 +114,10 @@ export default function Checkout() {
               className={ errors.lastName && touched.lastName ? 'input-error' : '' }             
               
             />
-            {errors.lastName && touched.lastName && <p className='error'>{errors.lastName}</p>}
+            {errors.lastName && touched.lastName && <span className='error'>{errors.lastName}</span>}
             <TextField 
+            inputProps={{style: {fontSize: 15, maxWidth:'800px'}}} 
+            InputLabelProps={{style: {fontSize: 15}}} 
               onChange={handleChange}
               onBlur={handleBlur}
               margin="normal"
@@ -121,27 +131,30 @@ export default function Checkout() {
               className={ errors.email && touched.email ? 'input-error' : '' }
               autoComplete="email"
             />
-            {errors.email && touched.email && <p className='error'>{errors.email}</p>}
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Im not a robot"
-            />
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-            >
-              Buy
-            </Button>
+            {errors.email && touched.email && <span className='error'>{errors.email}</span>}
+            
+            <Link to='/success'>
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2, backgroundColor:'#333',
+                fontSize:'1.4rem',
+                '&:hover': {
+                    background: "#faba42",
+                }, }}
+              >
+                Buy
+              </Button>
+            </Link>
             <Grid container>
               <Grid item xs>
-                <Link href="#" variant="body2">
+                <Link to='/notFound' variant="body2">
                   Forgot password?
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="#" variant="body2">
+                <Link to='/notFound' variant="body2">
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>
@@ -150,6 +163,6 @@ export default function Checkout() {
         </Box>
         
       </Container>
-    </ThemeProvider>
+    
   );
 }

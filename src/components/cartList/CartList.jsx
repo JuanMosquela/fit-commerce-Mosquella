@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import { useContext } from "react"
-import { CartContext } from "../context/CartProvider";
+import { CartContext } from "../../context/CartProvider";
 import './cartList.css'
+import { Button } from '@mui/material';
 
 const CartList = () => {
 
@@ -20,7 +21,7 @@ const CartList = () => {
                 <th>Price</th>
             </tr>
             {cartItems.map(product => (
-                <tr>
+                <tr key={product.id}>
                     <td><img src={product.pictureURL} alt={product.title} /></td>
                     <td>{product.title}</td>
                     <td>{product.amount}</td>
@@ -34,7 +35,23 @@ const CartList = () => {
             <tr className='table-row'>
                 <th colSpan='4'>
                     <Link to='/checkout'>
-                        <button className='btn-purchase'>Buy</button>
+                        <Button
+                                    
+                                variant='contained'                                                             
+                                                                            
+                                sx={{ 
+                                                                        
+                                    backgroundColor:'#333',
+                                    fontSize:'1.4rem',
+                                    '&:hover': {
+                                         background: "#faba42",
+                                    },
+                                    marginLeft:'0px !important',
+
+                                }}
+                                >
+                                Buy
+                            </Button>   
                     </Link>
                 </th>            
             </tr>        
