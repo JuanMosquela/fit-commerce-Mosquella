@@ -3,29 +3,32 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import { Link } from 'react-router-dom';
-import Grid from '@mui/material/Grid';
+import { useNavigate } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { collection, addDoc, getFirestore } from 'firebase/firestore';
-import Swal from 'sweetalert2';
 import { useFormik } from 'formik';
 import { basicSchemas } from '../../schemas/basicSchemas';
 import './checkout.css'
 import { CartContext } from '../../context/CartProvider';
 import { useContext } from 'react';
-
+import { useState } from 'react';
+import { LinearProgress } from '@mui/material';
 
 
 export default function Checkout() {
 
   const {cartItems, totalPrice} = useContext(CartContext)
+
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(false)
+  
+  const navigate = useNavigate()  
   
   const onSubmit = ()=> {
+    setLoading(true)
     const pedido = {
         buyer: values,
         pedido: cartItems,
@@ -33,13 +36,15 @@ export default function Checkout() {
         date: new Date().toDateString()
     }
 
-    const dataBase = getFirestore()  
-    
-    const collectionRef = collection(dataBase, 'pedidos')
-    addDoc(collectionRef, pedido).then(({ id }) => Swal.fire(
-    'Gracias por tu compra!', 
-    `Nº de orden ${id} <br><br> Por un total de $ ${pedido.price} <br><br> Fecha de compra : ${pedido.date}`, 
-    'success'))   
+    if(cartItems.length > 0){
+      const dataBase = getFirestore()    
+      const collectionRef = collection(dataBase, 'pedidos')    
+      addDoc(collectionRef, pedido).then((res) => setLoading(false)).then((res) => navigate('/success'))
+      
+      
+    }else{
+      setError(true)
+    }    
   }
   
 
@@ -51,9 +56,7 @@ export default function Checkout() {
     },
     validationSchema: basicSchemas,
     onSubmit,    
-  }) 
-
-   
+  })    
 
   return (
     
@@ -65,9 +68,7 @@ export default function Checkout() {
             flexDirection: 'column',
             alignItems: 'center', 
             justifyContent:'center', 
-            maxWidth:'800px'
-            
-              
+            maxWidth:'800px'              
           }}
         >
           <Avatar sx={{ m: 1, bgcolor: '#000' }}>
@@ -87,12 +88,9 @@ export default function Checkout() {
               label="First Name"
               name="firstName"
               autoComplete="name"
-              value={values.firstName}
-              
+              value={values.firstName}              
               inputProps={{style: {fontSize: 15, maxWidth:'800px'}}} 
-              InputLabelProps={{style: {fontSize: 15}}} 
-            
-              
+              InputLabelProps={{style: {fontSize: 15}}}  
               
               className={ errors.firstName && touched.firstName ? 'input-error' : '' }          
               
@@ -131,38 +129,43 @@ export default function Checkout() {
               className={ errors.email && touched.email ? 'input-error' : '' }
               autoComplete="email"
             />
-            {errors.email && touched.email && <span className='error'>{errors.email}</span>}
+            {errors.email && touched.email && <span className='error'>{errors.email}</span>}           
             
-            <Link to='/success'>
+            {loading ? 
               <Button
+                onClick={() => onSubmit()} 
                 type="submit"
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2, backgroundColor:'#333',
                 fontSize:'1.4rem',
                 '&:hover': {
-                    background: "#faba42",
+                    background: "#333",
                 }, }}
               >
-                Buy
+                <Box>
+                  <LinearProgress /> Submiting...
+                </Box>
+              </Button> :
+              <Button
+                onClick={() => onSubmit()} 
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2, backgroundColor:'#333',
+                fontSize:'1.4rem',
+                '&:hover': {
+                    background: "#333",
+                }, }}
+                >
+                Submit
               </Button>
-            </Link>
-            <Grid container>
-              <Grid item xs>
-                <Link to='/notFound' variant="body2">
-                  Forgot password?
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link to='/notFound' variant="body2">
-                  {"Don't have an account? Sign Up"}
-                </Link>
-              </Grid>
-            </Grid>
+            }
+
+            {error && <span className='error'>El carrito no puede estar vacio</span>}          
+            
           </Box>
-        </Box>
-        
-      </Container>
-    
+        </Box>        
+      </Container>    
   );
 }

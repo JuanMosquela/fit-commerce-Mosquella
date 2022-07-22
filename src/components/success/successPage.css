@@ -25,6 +25,12 @@
     color: #1d354d;
 }
 
+.success-icon{
+    
+    font-size: 5rem;
+    color: #1d354d;
+}
+
 @media (max-width:600px){
     .success-content{
         width: 100%;

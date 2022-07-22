@@ -60,7 +60,7 @@ tr td img{
     
 }
 
-@media (max-width:500px){
+@media (max-width:650px){
     .cart-list-section{
         padding: 0;
     }

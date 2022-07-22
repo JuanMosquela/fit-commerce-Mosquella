@@ -8,12 +8,13 @@ const CartList = () => {
 
     const {cartItems, totalPrice} = useContext(CartContext)
 
-    console.log(cartItems)
+
   return (
     <section className="cart-list-section">     
         
         <table>
             
+            <tbody>
             <tr>
                 <th>Product</th>
                 <th>Product Name</th>
@@ -35,19 +36,16 @@ const CartList = () => {
             <tr className='table-row'>
                 <th colSpan='4'>
                     <Link to='/checkout'>
-                        <Button
-                                    
+                        <Button                                    
                                 variant='contained'                                                             
                                                                             
-                                sx={{ 
-                                                                        
+                                sx={{                                                                        
                                     backgroundColor:'#333',
                                     fontSize:'1.4rem',
                                     '&:hover': {
                                          background: "#faba42",
                                     },
                                     marginLeft:'0px !important',
-
                                 }}
                                 >
                                 Buy
@@ -55,6 +53,7 @@ const CartList = () => {
                     </Link>
                 </th>            
             </tr>        
+            </tbody>
             
         </table>
     </section>

@@ -18,13 +18,10 @@ const CartProvider = ({ children }) => {
 
     const [quantity, setQuantity] = useState(0)     
 
-    const [totalPrice, setTotalPrice] = useState(0) 
-    
-    
+    const [totalPrice, setTotalPrice] = useState(0)    
     
 
-    const addItem = (product, counter) => {     
-      
+    const addItem = (product, counter) => {       
 
       const inCart = cartItems.find(item => {
         return item.id === product.id
@@ -41,12 +38,10 @@ const CartProvider = ({ children }) => {
               
             }else return item
           })           
-          
         )
       }else{
         setCartItems([...cartItems, {...product, amount: counter, counter:1}])        
       }      
-      
     }    
 
   const removeItem = (product) => {
@@ -60,9 +55,6 @@ const CartProvider = ({ children }) => {
   const toggleCart = (state) => {
     setShowCart(state)
   }
-
-
-
   const clear = () => {
     setCartItems([]);
     setTotalPrice(0)

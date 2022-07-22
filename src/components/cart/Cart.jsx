@@ -1,21 +1,15 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { AiOutlineShopping } from "react-icons/ai";
-import { AiFillDelete } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { CartContext } from "../../context/CartProvider";
-
 import { MdOutlineKeyboardArrowLeft } from 'react-icons/md'
 import './cart.css'
 
 
 
-
 const Cart = () => {       
 
-    const { cartItems, toggleCart, removeItem, totalPrice, clearCart } = useContext(CartContext) 
-
-   
-    
+    const { cartItems, toggleCart, removeItem, totalPrice, clear } = useContext(CartContext)    
     
     
 
@@ -45,7 +39,7 @@ const Cart = () => {
                             <Link to='/cartList'>
                                 <button className="btn-purchase" onClick={() => toggleCart(false)}>View Cart</button>
                             </Link>
-                            <button className="btn-purchase" onClick={() => clearCart(cartItems)}>Clear Cart</button>
+                            <button className="btn-purchase" onClick={() => clear(cartItems)}>Clear Cart</button>
                         </div>
                         {cartItems.map(product => (
                         

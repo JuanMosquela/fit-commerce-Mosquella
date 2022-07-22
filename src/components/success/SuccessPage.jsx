@@ -4,6 +4,7 @@ import { runConfetti } from './Confetti'
 import { CartContext } from '../../context/CartProvider'
 import { Link } from 'react-router-dom'
 import { Button } from '@mui/material';
+import { BsFillBagCheckFill } from 'react-icons/bs'
 
 
 const SuccessPage = () => {
@@ -21,6 +22,7 @@ const SuccessPage = () => {
   return (
     <div className='success'>
         <div className="success-content">
+          <BsFillBagCheckFill className='success-icon' />
           <h1>Thank you for your order</h1>
           <Link to='/'>
             <Button                                    
