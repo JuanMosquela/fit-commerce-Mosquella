@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { CartContext } from "../../context/CartProvider";
 import { MdOutlineKeyboardArrowLeft } from 'react-icons/md'
 import './cart.css'
+import { Button } from "@mui/material";
 
 
 
@@ -34,38 +35,50 @@ const Cart = () => {
                         </div>
                     ) : 
                     <div>
-
                         <div className="btn-container-top">
                             <Link to='/cartList'>
-                                <button className="btn-purchase" onClick={() => toggleCart(false)}>View Cart</button>
+                                <Button 
+                                    className="btn-purchase"
+                                    onClick={() => toggleCart(false)}
+                                    variant='contained'
+                                    >View Cart</Button>
                             </Link>
-                            <button className="btn-purchase" onClick={() => clear(cartItems)}>Clear Cart</button>
+                            <Button 
+                                className="btn-purchase"
+                                onClick={() => clear(cartItems)}
+                                variant='contained'
+                                >Clear Cart</Button>
                         </div>
+
+                    
                         {cartItems.map(product => (
                         
                             <div key={product.id} className="cart-product-container">
-                                <div key={product.id} className="cart-product-list">
-                                    <figure>
-                                        <img src={product.pictureURL} alt={product.title}/>
-                                    </figure>
-                                    <div className="product-info">
-                                        <h4>{product.title}</h4>
-                                        <h4>X {product.amount}</h4>
-                                        <h5>${product.price * product.amount}</h5> 
-                                        
+                                <div key={product.id} className="cart-product">
+                                    <div className="cart-product-list">
+                                        <figure>
+                                            <img src={product.pictureURL} alt={product.title}/>
+                                        </figure>
+                                        <div className="product-info">
+                                            <h4>{product.title}</h4>
+                                            <h4>X {product.amount}</h4>
+                                            <h5>${product.price * product.amount}</h5> 
+                                            
+                                        </div>
                                     </div>
                                     <div className="btn-container">
                                        
-                                        <button className="remove-btn" onClick={() => removeItem(product)}>Delete</button>
+                                        <button className="remove-btn" onClick={() => removeItem(product)}>x</button>
                                     </div>  
                                     {product.amount >= product.stock && <p className="stock">{`stock surpass - max ${product.stock}`}</p>}                    
                                 
                                 </div>
                             </div>                        
                         ))}
+                        
                     </div>
                 
-                    }
+                }
         </div>
     </section>
     </div>

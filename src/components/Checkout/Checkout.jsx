@@ -15,7 +15,7 @@ import './checkout.css'
 import { CartContext } from '../../context/CartProvider';
 import { useContext } from 'react';
 import { useState } from 'react';
-import { LinearProgress } from '@mui/material';
+import { CircularProgress, LinearProgress } from '@mui/material';
 
 
 export default function Checkout() {
@@ -26,37 +26,40 @@ export default function Checkout() {
   const [error, setError] = useState(false)
   
   const navigate = useNavigate()  
+   
   
   const onSubmit = ()=> {
-    setLoading(true)
+    
     const pedido = {
         buyer: values,
         pedido: cartItems,
         price: totalPrice,
         date: new Date().toDateString()
-    }
+    }   
 
-    if(cartItems.length > 0){
-      const dataBase = getFirestore()    
-      const collectionRef = collection(dataBase, 'pedidos')    
-      addDoc(collectionRef, pedido).then((res) => setLoading(false)).then((res) => navigate('/success'))
+    if( Object.entries(errors).length > 0 || cartItems.length === 0 ){
       
+      setError(true)         
       
     }else{
-      setError(true)
-    }    
-  }
-  
 
-  const { values, handleChange, handleSubmit, handleBlur, errors, touched } = useFormik({
+      setLoading(true)
+      const dataBase = getFirestore()    
+      const collectionRef = collection(dataBase, 'pedidos')    
+      addDoc(collectionRef, pedido).then((res) => setLoading(false)).then((res) => navigate('/success')).then(res => setLoading(false)) 
+    }    
+  }  
+
+  const { values, handleChange, handleSubmit, handleBlur, errors, touched, resetForm } = useFormik({
     initialValues: { 
       firstName: '',
       lastName:'',
       email: ''
     },
     validationSchema: basicSchemas,
-    onSubmit,    
-  })    
+    onSubmit    
+  })   
+ 
 
   return (
     
@@ -77,7 +80,7 @@ export default function Checkout() {
           <Typography component="h1" variant="h5">
             Checkout
           </Typography>
-          <Box  component="form" onSubmit={handleSubmit} noValidate sx={{ mt:'1rem' }} >
+          <form  component="form" onSubmit={handleSubmit} noValidate sx={{ mt:'1rem' }} >
             <TextField 
               onChange={handleChange}
               onBlur={handleBlur}
@@ -144,7 +147,7 @@ export default function Checkout() {
                 }, }}
               >
                 <Box>
-                  <LinearProgress /> Submiting...
+                  <CircularProgress />
                 </Box>
               </Button> :
               <Button
@@ -161,10 +164,9 @@ export default function Checkout() {
                 Submit
               </Button>
             }
-
-            {error && <span className='error'>El carrito no puede estar vacio</span>}          
+            {error && <span className='error'>El carrito no puede estar vacio</span>}         
             
-          </Box>
+          </form>
         </Box>        
       </Container>    
   );

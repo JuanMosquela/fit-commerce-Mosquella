@@ -16,7 +16,7 @@ const Navbar = () => {
 
   
 
-  const [menu, setMenu] = useState(false) 
+  
   
 
 
@@ -37,21 +37,8 @@ const Navbar = () => {
         
         
     </header>
-    <div className="menu" >
-        <HiMenu className='bars' onClick={() => setMenu(true)} />
-        {menu && (            
-          <ul className='container-menu'>
-            <div className="close">
-              <HiX className='bars' onClick={() => setMenu(false)} />
-            </div>
-            <li className='menu-link'><Link to='/'>Home</Link></li>
-            <li className='menu-link'><Link to='/'>Contact</Link></li>
-            <li className='menu-link'><Link to='/'>FAQ</Link></li>
-                           
-          </ul>
-        )}
-      </div>
-      {showCart && <Cart />}
+    
+    {showCart && <Cart />}
      
     </>
   )

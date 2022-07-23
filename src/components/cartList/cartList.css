@@ -5,7 +5,7 @@
     justify-content: center;
     flex-direction: column;
     
-    padding: 0 10%;
+    padding: calc(60px + 2rem) 10%;
     background-color: rgb(243, 240, 240);
 }
 
@@ -62,7 +62,7 @@ tr td img{
 
 @media (max-width:650px){
     .cart-list-section{
-        padding: 0;
+        padding: calc(60px + 2rem) 0;
     }
 
     
