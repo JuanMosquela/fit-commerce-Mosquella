@@ -36,8 +36,8 @@ const Home = () => {
       getDocs(products).then((res) => {         
         const aux = res.docs.map(item => ({...item.data(), id: item.id}));
         
-        setData(aux)
         setLoading(false)
+        setData(aux)
       })
     }    
     
@@ -47,20 +47,20 @@ const Home = () => {
 
 
   return (
-    <div className="item-container">
-      <Background /> 
+    <div >
+      <Background className='background' /> 
       {(loading) ?
       <div className="grid-container">
-        <Skeleton variant='rectangular' height={260} width={200} animation='wave'  />
-        <Skeleton variant='rectangular' height={260} width={200} animation='wave'  />
-        <Skeleton variant='rectangular' height={260} width={200} animation='wave'  />
-        <Skeleton variant='rectangular' height={260} width={200} animation='wave'  />
-        <Skeleton variant='rectangular' height={260} width={200} animation='wave'  />
-        <Skeleton variant='rectangular' height={260} width={200} animation='wave'  />
-        <Skeleton variant='rectangular' height={260} width={200} animation='wave'  />
-        <Skeleton variant='rectangular' height={260} width={200} animation='wave'  />
-      
-     </div> :      
+      <Skeleton variant='rectangular' height={260} width={200} animation='wave'  />
+      <Skeleton variant='rectangular' height={260} width={200} animation='wave'  />
+      <Skeleton variant='rectangular' height={260} width={200} animation='wave'  />
+      <Skeleton variant='rectangular' height={260} width={200} animation='wave'  />
+      <Skeleton variant='rectangular' height={260} width={200} animation='wave'  />
+      <Skeleton variant='rectangular' height={260} width={200} animation='wave'  />
+      <Skeleton variant='rectangular' height={260} width={200} animation='wave'  />
+      <Skeleton variant='rectangular' height={260} width={200} animation='wave'  />
+    
+   </div> :      
        <div className="grid-container">
         {data.map((product) => (
           <Item key={product.id} product={product}  />

@@ -6,7 +6,7 @@ import { Button } from "@mui/material";
 const Background = () => {
   return (
     <div className="background">
-        <img src={BackgroundImg} alt="" />
+        <img src={BackgroundImg} alt="fondo-home" />
         <div className="header-content">
             <span>tu tienda online:</span>
             <h3>La casa del</h3>

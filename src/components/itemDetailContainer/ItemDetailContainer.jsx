@@ -39,7 +39,7 @@ const ItemDetailContainer = () => {
     <div className="item-detail-container" style={{ minHeight:'100vh'}} >
       {loading ? (
          <div className="item-container">
-          <Skeleton variant='rectangular'  width={300} height={360} animation='wave'  />
+          <Skeleton variant='rectangular'  width={300} height={380} animation='wave'  />
           <div>
             <Skeleton variant='text' width='50%' height={40} animation='wave'  />
             <Skeleton variant='text' width='60%' height={40} animation='wave'  />
