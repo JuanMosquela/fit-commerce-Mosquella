@@ -78,7 +78,7 @@ const onAdd = (product) => {
         
       />     
       
-      <Box sx={{ display: 'flex', flexDirection: 'column', maxWidth:'500px', padding:'0' }}>
+      <Box sx={{ display: 'flex', flexDirection: 'column', maxWidth:'500px', padding:'5rem 0' }}>
         <CardContent sx={{ flex: '1 0 auto' }}>
           <Typography component="span" variant="subtitle1" sx={{ fontSize:'1.6rem', marginBottom:'.5rem' }}>
             {'Proteina ' + category}
@@ -127,7 +127,7 @@ const onAdd = (product) => {
               add to cart
             </Button>   
             
-            <Link to='/cartList' sx={{ display:'block'  }}>
+            <Link to='/cartList'>
               <Button
                           
                           variant='contained' 

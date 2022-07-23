@@ -1,19 +1,15 @@
 .cart-list-section{
     min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    display: flex; 
+    padding: calc(60px + 3rem) 10%;   
+    flex-direction: column;   
+    background-color: #EEEEEE;
     
-    padding: calc(60px + 2rem) 10%;
-    background-color: rgb(243, 240, 240);
 }
 
 .cart-list-section h2{
-    font-family: arial, sans-serif;
-    
-    text-align: left;
-    
+    font-family: arial, sans-serif;    
+    text-align: left;    
     width: 100%;padding-left: 18px;
     font-size: 2rem;
     margin-bottom: 2rem;
@@ -23,7 +19,8 @@ table {
     background-color: #FFF;    
     font-family: arial, sans-serif;
     border-collapse: collapse;
-    width: 100%;
+    width: 100%;  
+    box-shadow: 1px 15px 20px rgba(194, 192, 192, 0.5);
     
 }
 
@@ -44,28 +41,37 @@ tr td img{
     text-align: center;
     width: 100%;
     object-fit: contain;
-
 }
 
 .btn-purchase{
-    margin-left: auto;
+    margin-left: auto;    
+}
+
+.table-row{
+    padding-bottom: 3rem;
     
 }
 
 .table-row th{
     font-family: arial, sans-serif;
     text-align: end;
-    padding: 1rem 3rem;
+    
+
+    padding: 1rem 3rem ;
     font-size: 2.2rem;   
     
 }
 
+tbody tr:nth-child(5) th{    
+    padding-bottom: 3rem;
+}
+    
+    
+
 @media (max-width:650px){
     .cart-list-section{
         padding: calc(60px + 2rem) 0;
-    }
-
-    
+    }    
 }
   
  

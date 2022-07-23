@@ -2,9 +2,9 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
 import { collection,getDocs, getFirestore } from 'firebase/firestore';
 import ItemDetail from "../itemDetail/ItemDetail";
-import { Box } from "@mui/system";
-import { CircularProgress } from "@mui/material";
 import SimpleSlider from '../simpleSlider/SimpleSlider';
+import {Skeleton} from '@mui/material'
+import { Stack } from "@mui/material";
 
 
 
@@ -36,11 +36,24 @@ const ItemDetailContainer = () => {
 
 
   return (
-    <div className="item-detail-container" style={{ minHeight:'100vh' }} >
-      {loading ? 
-        <Box sx={{ textAlign:'center', marginTop:'2rem' }}>
-          <CircularProgress />
-        </Box> :
+    <div className="item-detail-container" style={{ minHeight:'100vh'}} >
+      {loading ? (
+         <Stack sx={{display:'flex', gap:'3rem', flexDirection:'row', justifyContent:'center', alignItems:'center', height:'100vh'}}>
+          <Skeleton variant='rectangular' width={300} height={380} animation='wave'  />
+          <div>
+            <Skeleton variant='text' width='50%' height={40} animation='wave'  />
+            <Skeleton variant='text' width='60%' height={40} animation='wave'  />
+            <Skeleton variant='text' width={340} height={40} animation='wave'  />
+            <Skeleton variant='text' width={340} height={40} animation='wave'  />
+            <Skeleton variant='text' width={340} height={40} animation='wave'  />
+            <Skeleton variant='text' width={340} height={40} animation='wave'  />
+            <Skeleton variant='text' width={340} height={40} animation='wave'  />
+            <Skeleton variant='text' width={340} height={40} animation='wave'  />
+            <Skeleton variant='text' width={340} height={40} animation='wave'  />
+          </div>
+            
+         </Stack>
+        ) :
         <>
           <ItemDetail product={product} />
           <SimpleSlider data={data} />

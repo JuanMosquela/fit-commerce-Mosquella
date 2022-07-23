@@ -145,9 +145,10 @@ export default function Checkout() {
                 '&:hover': {
                     background: "#333",
                 }, }}
+                
               >
                 <Box>
-                  <CircularProgress />
+                  <CircularProgress style={{'color': '#FFF'}} />
                 </Box>
               </Button> :
               <Button
