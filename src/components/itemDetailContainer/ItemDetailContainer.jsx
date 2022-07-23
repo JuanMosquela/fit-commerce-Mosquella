@@ -4,7 +4,7 @@ import { collection,getDocs, getFirestore } from 'firebase/firestore';
 import ItemDetail from "../itemDetail/ItemDetail";
 import SimpleSlider from '../simpleSlider/SimpleSlider';
 import {Skeleton} from '@mui/material'
-import { Stack } from "@mui/material";
+import './itemDetailContainer.css'
 
 
 
@@ -38,21 +38,21 @@ const ItemDetailContainer = () => {
   return (
     <div className="item-detail-container" style={{ minHeight:'100vh'}} >
       {loading ? (
-         <Stack sx={{display:'flex', gap:'3rem', flexDirection:'row', justifyContent:'center', alignItems:'center', height:'100vh'}}>
-          <Skeleton variant='rectangular' width={300} height={380} animation='wave'  />
+         <div className="item-container">
+          <Skeleton variant='rectangular'  width={300} height={360} animation='wave'  />
           <div>
             <Skeleton variant='text' width='50%' height={40} animation='wave'  />
             <Skeleton variant='text' width='60%' height={40} animation='wave'  />
-            <Skeleton variant='text' width={340} height={40} animation='wave'  />
-            <Skeleton variant='text' width={340} height={40} animation='wave'  />
-            <Skeleton variant='text' width={340} height={40} animation='wave'  />
-            <Skeleton variant='text' width={340} height={40} animation='wave'  />
-            <Skeleton variant='text' width={340} height={40} animation='wave'  />
-            <Skeleton variant='text' width={340} height={40} animation='wave'  />
-            <Skeleton variant='text' width={340} height={40} animation='wave'  />
+            <Skeleton variant='text' width={320} height={40} animation='wave'  />
+            <Skeleton variant='text' width={320} height={40} animation='wave'  />
+            <Skeleton variant='text' width={320} height={40} animation='wave'  />
+            <Skeleton variant='text' width={320} height={40} animation='wave'  />
+            <Skeleton variant='text' width={320} height={40} animation='wave'  />
+            <Skeleton variant='text' width={320} height={40} animation='wave'  />
+            <Skeleton variant='text' width={320} height={40} animation='wave'  />
           </div>
             
-         </Stack>
+         </div>
         ) :
         <>
           <ItemDetail product={product} />

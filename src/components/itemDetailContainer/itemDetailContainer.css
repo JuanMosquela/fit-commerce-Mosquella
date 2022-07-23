@@ -1,0 +1,22 @@
+.item-detail-container{
+    min-height: 100vh;
+    
+    
+}
+
+.item-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    
+    gap: 3rem;
+    height: 100vh;
+}
+
+@media (max-width:'500px'){
+    .item-detail-container{
+        
+    }
+    
+}
