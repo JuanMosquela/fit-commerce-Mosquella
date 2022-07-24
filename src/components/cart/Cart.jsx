@@ -41,12 +41,27 @@ const Cart = () => {
                                     className="btn-purchase"
                                     onClick={() => toggleCart(false)}
                                     variant='contained'
+                                    sx={{                                  
+                                        
+                                        backgroundColor:'#333',
+                                        fontSize:'1.4rem',
+                                        '&:hover': {
+                                            background: "#faba42",
+                                        }}}
+                                    
                                     >View Cart</Button>
                             </Link>
                             <Button 
                                 className="btn-purchase"
                                 onClick={() => clear(cartItems)}
                                 variant='contained'
+                                sx={{                             
+                                    
+                                    backgroundColor:'#333',
+                                    fontSize:'1.4rem',
+                                    '&:hover': {
+                                        background: "#faba42",
+                                    }}}
                                 >Clear Cart</Button>
                         </div>
 
