@@ -1,4 +1,4 @@
-# Proyecto Fit-Commerce
+# Proyecto Fit E-Commerce
 
 ## Camada de Gaston Morales- 37750
 

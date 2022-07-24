@@ -37,6 +37,7 @@ const ItemDetailContainer = () => {
 
   return (
     <div className="item-detail-container" style={{ minHeight:'100vh'}} >
+      <input type="text" />
       {loading ? (
          <div className="item-container">
           <Skeleton variant='rectangular'  width={300} height={380} animation='wave'  />
