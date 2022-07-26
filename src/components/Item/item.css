@@ -3,7 +3,8 @@
     height: 280px;
     margin: 0 auto;
     background-color: #FFF;
-    border-radius: 7px;   
+    border-radius: 7px;  
+    position: relative; 
    
 }
 
@@ -21,5 +22,19 @@
     
     
     
+}
+
+.product-category{
+    text-transform: uppercase;
+    position: absolute;
+    background-color: #221908;
+    color: #FFF;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    font-weight: 600;
+    padding: 2px 8px;
+    top: 30px;
+    right: -20px;
+    transform:rotate(90deg)
 }
 

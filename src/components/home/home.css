@@ -65,6 +65,6 @@
 
 @media (max-width:500px){
     .search-filter{
-        margin-right: 15px;
+        max-width: 85%;
     }
 }

@@ -15,6 +15,7 @@ const Item = ({ product}) => {
           <Link to={`/item/${product.id}`}>
             <figure className='card-item' >
               <img src={product.pictureURL} alt={product.title} />
+              <span className='product-category'>{product.category}</span>
                     
             </figure>              
           </Link>      
