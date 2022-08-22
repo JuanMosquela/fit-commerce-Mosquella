@@ -1,16 +1,25 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AiOutlineShopping } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { CartContext } from "../../context/CartProvider";
 import { MdOutlineKeyboardArrowLeft } from 'react-icons/md'
 import './cart.css'
 import { Button } from "@mui/material";
+import Itemcount from "../itemCount/ItemCount";
 
 
 
 const Cart = () => {       
 
-    const { cartItems, toggleCart, removeItem, totalPrice, clear } = useContext(CartContext)    
+    const { handleClick, cartItems, toggleCart, removeItem, totalPrice, clear } = useContext(CartContext) 
+    
+    console.log(cartItems)
+
+    
+
+    
+
+    
     
     
 
@@ -66,7 +75,7 @@ const Cart = () => {
                         </div>
 
                     
-                        {cartItems.map(product => (
+                        {cartItems.map((product, index) => (
                         
                             <div key={product.id} className="cart-product-container">
                                 <div key={product.id} className="cart-product">
@@ -81,6 +90,8 @@ const Cart = () => {
                                             
                                         </div>
                                     </div>
+                                    <Itemcount handleClick={handleClick}  product={product} count={product.amount}/> 
+                                    
                                     <div className="btn-container">
                                        
                                         <button className="remove-btn" onClick={() => removeItem(product)}>x</button>

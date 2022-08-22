@@ -8,7 +8,7 @@ import './itemCount.css'
 
 
 
-const Itemcount = ({ handleClickMinus, handleClickPlus, count, product }) => {    
+const Itemcount = ({ handleClick, count, product }) => {    
 
   
   return (
@@ -31,14 +31,14 @@ const Itemcount = ({ handleClickMinus, handleClickPlus, count, product }) => {
             }}>                
             <AiOutlineMinus 
                 style={{ fontSize:'1.8rem' }}                   
-                onClick={() => handleClickMinus(product, -1)}
+                onClick={() => handleClick(product, -1)}
             />
 
             {count}
         
             <AiOutlinePlus 
                 style={{ fontSize:'1.8rem' }}                    
-                onClick={() => handleClickPlus(product, +1)} 
+                onClick={() => handleClick(product, +1)} 
             />
         </Button>           
         

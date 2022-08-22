@@ -18,9 +18,11 @@ const CartProvider = ({ children }) => {
 
     const [quantity, setQuantity] = useState(0)     
 
-    const [totalPrice, setTotalPrice] = useState(0)    
+    const [totalPrice, setTotalPrice] = useState(0) 
     
+    const [count, setCount] = useState()
 
+    
     const addItem = (product, counter) => {       
 
       const inCart = cartItems.find(item => {
@@ -63,6 +65,12 @@ const CartProvider = ({ children }) => {
 
   };
 
+  const handleClick = (product, counter) => {
+    if(product.amount >= product.stock || count <= 0) return
+    setCount(count + counter) 
+
+  }
+
   useEffect(() => { 
     localStorage.setItem('cart', JSON.stringify(cartItems)) 
       
@@ -76,7 +84,7 @@ const CartProvider = ({ children }) => {
 
 
   return (
-    <CartContext.Provider value={{ addItem,toggleCart, showCart, cartItems, totalPrice, removeItem, quantity, clear}}>
+    <CartContext.Provider value={{ handleClick, addItem,toggleCart, showCart, cartItems, totalPrice, removeItem, quantity, clear}}>
         {children}
     </CartContext.Provider>
   )
